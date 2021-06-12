@@ -47,7 +47,7 @@ class TestesBaseDados {
     private fun getVoluntarioBaseDados(tabela: TabelaVoluntarios, id: Long): Voluntario {
         val cursor = tabela.query(
             TabelaVoluntarios.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaVoluntarios.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -61,7 +61,7 @@ class TestesBaseDados {
     private fun getInstituicaoBaseDados(tabela: TabelaInstituicoes, id: Long): Instituicao {
         val cursor = tabela.query(
             TabelaInstituicoes.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaInstituicoes.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -75,7 +75,7 @@ class TestesBaseDados {
     private fun getTarefasBaseDados(tabela: TabelaTarefas, id: Long): Tarefa {
         val cursor = tabela.query(
             TabelaTarefas.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaTarefas.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -105,7 +105,6 @@ class TestesBaseDados {
         val tabelaVoluntarios = TabelaVoluntarios(db)
 
         val voluntario = Voluntario(nome = "Manuel", data_nascimento = "10/02/1999", genero = "Masculino")
-
         voluntario.id = insereVoluntario(tabelaVoluntarios, voluntario)
 
         assertEquals(voluntario, getVoluntarioBaseDados(tabelaVoluntarios, voluntario.id))
