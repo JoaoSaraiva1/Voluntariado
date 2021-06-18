@@ -9,6 +9,7 @@ import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 import org.junit.Before
+import java.util.*
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -104,7 +105,7 @@ class TestesBaseDados {
         val db = getBdVoluntariadoOpenHelper().writableDatabase
         val tabelaVoluntarios = TabelaVoluntarios(db)
 
-        val voluntario = Voluntario(nome = "Manuel", data_nascimento = "10/02/1999", genero = "Masculino")
+        val voluntario = Voluntario(nome = "Manuel", data_nascimento = Date(1999-1900,5,14), genero = "Masculino")
         voluntario.id = insereVoluntario(tabelaVoluntarios, voluntario)
 
         assertEquals(voluntario, getVoluntarioBaseDados(tabelaVoluntarios, voluntario.id))
@@ -117,7 +118,7 @@ class TestesBaseDados {
         val db = getBdVoluntariadoOpenHelper().writableDatabase
         val tabelaVoluntarios = TabelaVoluntarios(db)
 
-        val voluntario = Voluntario(nome = "Manuel", data_nascimento = "10/02/1999", genero = "Masculino")
+        val voluntario = Voluntario(nome = "Manuel", data_nascimento = Date(1998-1900,4,16), genero = "Masculino")
         voluntario.id = insereVoluntario(tabelaVoluntarios, voluntario)
 
         voluntario.nome = "Manel"
@@ -140,7 +141,7 @@ class TestesBaseDados {
         val db = getBdVoluntariadoOpenHelper().writableDatabase
         val tabelaVoluntarios = TabelaVoluntarios(db)
 
-        val voluntario = Voluntario(nome = "Manuel", data_nascimento = "10/02/1999", genero = "Masculino")
+        val voluntario = Voluntario(nome = "Manuel", data_nascimento = Date(2005-1900,7,13), genero = "Masculino")
         voluntario.id = insereVoluntario(tabelaVoluntarios, voluntario)
 
         val registosEliminados = tabelaVoluntarios.delete(
@@ -158,7 +159,7 @@ class TestesBaseDados {
         val db = getBdVoluntariadoOpenHelper().writableDatabase
         val tabelaVoluntarios = TabelaVoluntarios(db)
 
-        val voluntario = Voluntario(nome = "Manuel", data_nascimento = "10/02/1999", genero = "Masculino")
+        val voluntario = Voluntario(nome = "Manuel", data_nascimento = Date(2010-1900,8,23), genero = "Masculino")
         voluntario.id = insereVoluntario(tabelaVoluntarios, voluntario)
 
         assertEquals(voluntario, getVoluntarioBaseDados(tabelaVoluntarios, voluntario.id))
