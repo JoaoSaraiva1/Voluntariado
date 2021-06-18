@@ -33,3 +33,9 @@ data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: 
         }
     }
 }
+
+private fun ContentValues.put(campoDataNascimento: String, date: Date) {
+
+}
+
+
