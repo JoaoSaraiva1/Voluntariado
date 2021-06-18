@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: String , var telefone: Long = 0, var genero: String) {
+data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: Long , var telefone: Long = 0, var genero: String) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaVoluntarios.CAMPO_NOME, nome)
@@ -24,7 +24,7 @@ data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: 
 
             val id = cursor.getLong(volId)
             val nome = cursor.getString(volNome)
-            val data_nascimento = cursor.getString(volDataNascimento)
+            val data_nascimento = cursor.getLong(volDataNascimento)
             val telefone = cursor.getLong(volTelefone)
             val genero = cursor.getString(volGenero)
 
