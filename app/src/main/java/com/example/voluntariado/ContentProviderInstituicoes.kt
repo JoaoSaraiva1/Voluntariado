@@ -253,7 +253,23 @@ class ContentProviderInstituicoes : ContentProvider() {
         selection: String?,
         selectionArgs: Array<out String>?
     ): Int {
-        TODO("Not yet implemented")
+        val bd = bdVoluntariadoOpenHelper!!.writableDatabase
+
+        return when (getUriMatcher().match(uri)) {
+            URI_INSTITUICAO_ESPECIFICO -> TabelaInstituicoes(bd).update(
+                values!!,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            URI_TAREFA_ESPECIFICA -> TabelaTarefas(bd).update(
+                values!!,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            else -> 0
+        }
     }
 
     companion object {
