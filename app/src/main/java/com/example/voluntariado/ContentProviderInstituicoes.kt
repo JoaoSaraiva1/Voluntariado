@@ -202,7 +202,17 @@ class ContentProviderInstituicoes : ContentProvider() {
      * @return The URI for the newly inserted item.
      */
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
-        TODO("Not yet implemented")
+        val bd = bdVoluntariadoOpenHelper!!.writableDatabase
+
+        val id = when (getUriMatcher().match(uri)) {
+            URI_INSTITUICOES -> TabelaInstituicoes(bd).insert(values!!)
+            URI_TAREFAS -> TabelaTarefas(bd).insert(values!!)
+            else -> -1L
+        }
+
+        if (id == -1L) return null
+
+        return Uri.withAppendedPath(uri, id.toString())
     }
 
     /**
