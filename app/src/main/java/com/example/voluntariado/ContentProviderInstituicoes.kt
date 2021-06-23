@@ -2,6 +2,7 @@ package com.example.voluntariado
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 
@@ -205,5 +206,23 @@ class ContentProviderInstituicoes : ContentProvider() {
         selectionArgs: Array<out String>?
     ): Int {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        private const val AUTHORITY = "com.example.voluntariado"
+
+        private const val INSTITUICOES = "instituicoes"
+        private const val TABELAS = "tabelas"
+
+        private fun getUriMatcher() : UriMatcher {
+            val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
+
+            uriMatcher.addURI(AUTHORITY, TABELAS, 100)
+            uriMatcher.addURI(AUTHORITY, "$INSTITUICOES/#", 101)
+            uriMatcher.addURI(AUTHORITY, TABELAS, 200)
+            uriMatcher.addURI(AUTHORITY, "$TABELAS/#", 201)
+
+            return uriMatcher
+        }
     }
 }
