@@ -214,13 +214,18 @@ class ContentProviderInstituicoes : ContentProvider() {
         private const val INSTITUICOES = "instituicoes"
         private const val TABELAS = "tabelas"
 
+        private const val URI_INSTITUICOES = 100
+        private const val URI_INSTITUICAO_ESPECIFICO = 101
+        private const val URI_TABELAS = 200
+        private const val URI_TABELA_ESPECIFICA = 201
+
         private fun getUriMatcher() : UriMatcher {
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
-            uriMatcher.addURI(AUTHORITY, TABELAS, 100)
-            uriMatcher.addURI(AUTHORITY, "$INSTITUICOES/#", 101)
-            uriMatcher.addURI(AUTHORITY, TABELAS, 200)
-            uriMatcher.addURI(AUTHORITY, "$TABELAS/#", 201)
+            uriMatcher.addURI(AUTHORITY, TABELAS, URI_INSTITUICOES)
+            uriMatcher.addURI(AUTHORITY, "$INSTITUICOES/#", URI_INSTITUICAO_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, TABELAS, URI_TABELAS)
+            uriMatcher.addURI(AUTHORITY, "$TABELAS/#", URI_TABELA_ESPECIFICA)
 
             return uriMatcher
         }
