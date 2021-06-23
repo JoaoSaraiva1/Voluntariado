@@ -138,7 +138,13 @@ class ContentProviderInstituicoes : ContentProvider() {
      * @return a MIME type string, or `null` if there is no type.
      */
     override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
+        return when (getUriMatcher().match(uri)) {
+            URI_INSTITUICOES -> "$MULTIPLOS_ITEMS/$INSTITUICOES"
+            URI_INSTITUICAO_ESPECIFICO -> "$UNICO_ITEM/$INSTITUICOES"
+            URI_TABELAS -> "$MULTIPLOS_ITEMS/$TABELAS"
+            URI_TABELA_ESPECIFICA -> "$UNICO_ITEM/$TABELAS"
+            else -> null
+        }
     }
 
     /**
@@ -218,6 +224,9 @@ class ContentProviderInstituicoes : ContentProvider() {
         private const val URI_INSTITUICAO_ESPECIFICO = 101
         private const val URI_TABELAS = 200
         private const val URI_TABELA_ESPECIFICA = 201
+
+        private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
+        private const val UNICO_ITEM = "vnd.android.cursor.item"
 
         private fun getUriMatcher() : UriMatcher {
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
