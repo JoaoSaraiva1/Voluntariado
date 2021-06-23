@@ -5,6 +5,8 @@ import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
+import android.provider.BaseColumns
+import kotlin.math.E
 
 class ContentProviderInstituicoes : ContentProvider() {
     private var bdVoluntariadoOpenHelper : BdVoluntariadoOpenHelper? = null
@@ -115,7 +117,47 @@ class ContentProviderInstituicoes : ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+        val bd = bdVoluntariadoOpenHelper!!.readableDatabase
+
+        return when (getUriMatcher().match(uri)) {
+            URI_INSTITUICOES -> TabelaInstituicoes(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_INSTITUICAO_ESPECIFICO -> TabelaInstituicoes(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            URI_TAREFAS -> TabelaTarefas(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_TAREFA_ESPECIFICA -> TabelaTarefas(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            else -> null
+        }
     }
 
     /**
@@ -141,8 +183,8 @@ class ContentProviderInstituicoes : ContentProvider() {
         return when (getUriMatcher().match(uri)) {
             URI_INSTITUICOES -> "$MULTIPLOS_ITEMS/$INSTITUICOES"
             URI_INSTITUICAO_ESPECIFICO -> "$UNICO_ITEM/$INSTITUICOES"
-            URI_TABELAS -> "$MULTIPLOS_ITEMS/$TABELAS"
-            URI_TABELA_ESPECIFICA -> "$UNICO_ITEM/$TABELAS"
+            URI_TAREFAS -> "$MULTIPLOS_ITEMS/$TAREFAS"
+            URI_TAREFA_ESPECIFICA -> "$UNICO_ITEM/$TAREFAS"
             else -> null
         }
     }
@@ -218,12 +260,12 @@ class ContentProviderInstituicoes : ContentProvider() {
         private const val AUTHORITY = "com.example.voluntariado"
 
         private const val INSTITUICOES = "instituicoes"
-        private const val TABELAS = "tabelas"
+        private const val TAREFAS = "tarefas"
 
         private const val URI_INSTITUICOES = 100
         private const val URI_INSTITUICAO_ESPECIFICO = 101
-        private const val URI_TABELAS = 200
-        private const val URI_TABELA_ESPECIFICA = 201
+        private const val URI_TAREFAS = 200
+        private const val URI_TAREFA_ESPECIFICA = 201
 
         private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
@@ -231,10 +273,10 @@ class ContentProviderInstituicoes : ContentProvider() {
         private fun getUriMatcher() : UriMatcher {
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
-            uriMatcher.addURI(AUTHORITY, TABELAS, URI_INSTITUICOES)
+            uriMatcher.addURI(AUTHORITY, TAREFAS, URI_INSTITUICOES)
             uriMatcher.addURI(AUTHORITY, "$INSTITUICOES/#", URI_INSTITUICAO_ESPECIFICO)
-            uriMatcher.addURI(AUTHORITY, TABELAS, URI_TABELAS)
-            uriMatcher.addURI(AUTHORITY, "$TABELAS/#", URI_TABELA_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, TAREFAS, URI_TAREFAS)
+            uriMatcher.addURI(AUTHORITY, "$TAREFAS/#", URI_TAREFA_ESPECIFICA)
 
             return uriMatcher
         }
