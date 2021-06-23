@@ -229,7 +229,21 @@ class ContentProviderInstituicoes : ContentProvider() {
      * @throws SQLException
      */
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
-        TODO("Not yet implemented")
+        val bd = bdVoluntariadoOpenHelper!!.writableDatabase
+
+        return when (getUriMatcher().match(uri)) {
+            URI_INSTITUICAO_ESPECIFICO -> TabelaInstituicoes(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            URI_TAREFA_ESPECIFICA -> TabelaTarefas(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
+            else -> 0
+        }
     }
 
     /**
