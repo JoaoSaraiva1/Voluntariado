@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.voluntariado.databinding.FragmentListaInstituicoesBinding
 
@@ -19,6 +20,7 @@ import com.example.voluntariado.databinding.FragmentListaInstituicoesBinding
 class ListaInstituicoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaInstituicoesBinding? = null
+    private var adapterInstituicoes : AdapterInstituicoes? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -38,6 +40,9 @@ class ListaInstituicoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curs
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewInstituicoes = view.findViewById<RecyclerView>(R.id.recyclerViewInstitucoes)
+        adapterInstituicoes = AdapterInstituicoes()
+        recyclerViewInstituicoes.adapter = adapterInstituicoes
+        recyclerViewInstituicoes.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this)
              .initLoader(ID_LOADER_MANAGER_INSTITUICOES, null, this)
