@@ -6,7 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterInstituicoes(val fragment: ListaInstituicoesFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicao>() {
+class AdapterInstituicoes(val fragment: ListaInstituicoesFragment) : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicao>() {
+    public var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     class ViewHolderInstituicao(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
         private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
