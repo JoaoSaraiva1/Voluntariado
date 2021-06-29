@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.RecyclerView
 import com.example.voluntariado.databinding.FragmentListaInstituicoesBinding
 
 
@@ -35,6 +36,8 @@ class ListaInstituicoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curs
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewInstituicoes = view.findViewById<RecyclerView>(R.id.recyclerViewInstitucoes)
 
         LoaderManager.getInstance(this)
              .initLoader(ID_LOADER_MANAGER_INSTITUICOES, null, this)
