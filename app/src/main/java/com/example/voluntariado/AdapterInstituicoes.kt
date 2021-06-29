@@ -3,11 +3,20 @@ package com.example.voluntariado
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterInstituicoes(val fragment: ListaInstituicoesFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicao>() {
     class ViewHolderInstituicao(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
+        private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
+        private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewMorada)
 
+        fun atualizaInstituicao(instituicao: Instituicao) {
+            textViewNome.text = instituicao.nome
+            textViewTelefone.text = instituicao.telefone.toString()
+            textViewMorada.text = instituicao.morada
+        }
     }
 
     /**
