@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textViewNome" type="id">Name</item>
+    <item name="textViewTelefone" type="id">PhoneNumber</item>
+    <item name="textViewMorada" type="id">Address</item>
+</resources>
