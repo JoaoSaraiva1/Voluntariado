@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterInstituicoes(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicao>() {
+class AdapterInstituicoes(val fragment: ListaInstituicoesFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicao>() {
     class ViewHolderInstituicao(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -34,7 +34,9 @@ class AdapterInstituicoes(var cursor: Cursor? = null) : RecyclerView.Adapter<Ada
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderInstituicao {
-        TODO("Not yet implemented")
+        val itemInstituicao = fragment.layoutInflater.inflate(R.layout.item_instituicao, parent, false)
+
+        return ViewHolderInstituicao(itemInstituicao)
     }
 
     /**

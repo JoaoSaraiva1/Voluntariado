@@ -40,7 +40,7 @@ class ListaInstituicoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curs
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewInstituicoes = view.findViewById<RecyclerView>(R.id.recyclerViewInstitucoes)
-        adapterInstituicoes = AdapterInstituicoes()
+        adapterInstituicoes = AdapterInstituicoes(this)
         recyclerViewInstituicoes.adapter = adapterInstituicoes
         recyclerViewInstituicoes.layoutManager = LinearLayoutManager(requireContext())
 
