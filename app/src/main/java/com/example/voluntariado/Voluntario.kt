@@ -9,7 +9,7 @@ data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: 
     fun toContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaVoluntarios.CAMPO_NOME, nome)
-        valores.put(TabelaVoluntarios.CAMPO_DATA_NASCIMENTO, data_nascimento)
+        valores.put(TabelaVoluntarios.CAMPO_DATA_NASCIMENTO, data_nascimento.time)
         valores.put(TabelaVoluntarios.CAMPO_TELEFONE, telefone)
         valores.put(TabelaVoluntarios.CAMPO_GENERO, genero)
         return valores
@@ -25,15 +25,12 @@ data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: 
 
             val id = cursor.getLong(volId)
             val nome = cursor.getString(volNome)
-            val data_nascimento = cursor.getLong(volDataNascimento)
+            val data_nascimento = Date(cursor.getLong(volDataNascimento))
             val telefone = cursor.getLong(volTelefone)
             val genero = cursor.getString(volGenero)
 
-            return Voluntario(id, nome, Date(data_nascimento), telefone, genero)
+            return Voluntario(id, nome, data_nascimento, telefone, genero)
         }
     }
 }
 
-private fun ContentValues.put(campoDataNascimento: String, date: Date) {
-
-}
