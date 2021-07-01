@@ -3,11 +3,22 @@ package com.example.voluntariado
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterInstituicoes(var cursor: Cursor? = null)  : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicoes>() {
+class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment,var cursor: Cursor? = null)  : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicoes>() {
     class ViewHolderInstituicoes(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val textViewNomeInstituicao = itemView.findViewById<TextView>(R.id.textViewNomeInstituicao)
+        private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewMorada)
+        private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
+        private val textViewTarefas = itemView.findViewById<TextView>(R.id.textViewNomeTarefa)
 
+        fun atualizaInstituicoes(instituicao: Instituicao) {
+            textViewNomeInstituicao.text = instituicao.nome
+            textViewMorada.text = instituicao.morada
+            textViewTelefone.text = instituicao.telefone.toString()
+            textViewTarefas.text = instituicao.idTarefa.toString()
+        }
     }
 
     /**
@@ -34,7 +45,9 @@ class AdapterInstituicoes(var cursor: Cursor? = null)  : RecyclerView.Adapter<Ad
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderInstituicoes {
-        TODO("Not yet implemented")
+        val itemInstituicoes = fragment.layoutInflater.inflate(R.layout.item_instituicoes, parent, false)
+
+        return ViewHolderInstituicoes(itemInstituicoes)
     }
 
     /**
@@ -59,7 +72,8 @@ class AdapterInstituicoes(var cursor: Cursor? = null)  : RecyclerView.Adapter<Ad
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderInstituicoes, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.atualizaInstituicoes(Instituicao.fromCursor(cursor!!))
     }
 
     /**
@@ -68,6 +82,6 @@ class AdapterInstituicoes(var cursor: Cursor? = null)  : RecyclerView.Adapter<Ad
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }
