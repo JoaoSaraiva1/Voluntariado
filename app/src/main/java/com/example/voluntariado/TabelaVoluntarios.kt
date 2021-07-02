@@ -37,9 +37,6 @@ class TabelaVoluntarios(db: SQLiteDatabase) {
     }
 
     companion object {
-        fun update(toContentValues: ContentValues, s: String, arrayOf: Array<String>) {
-
-        }
 
         const val NOME_TABELA = "voluntarios"
         const val CAMPO_NOME = "nome"

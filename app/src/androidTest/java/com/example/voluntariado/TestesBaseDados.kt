@@ -123,7 +123,7 @@ class TestesBaseDados {
 
         voluntario.nome = "Manel"
 
-        val registosAlterados = TabelaVoluntarios.update(
+        val registosAlterados = tabelaVoluntarios.update(
             voluntario.toContentValues(),
             "${BaseColumns._ID}=?",
             arrayOf(voluntario.id.toString())
