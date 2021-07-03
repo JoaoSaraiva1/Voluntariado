@@ -156,6 +156,23 @@ class ContentProviderInstituicoes : ContentProvider() {
                 null
             )
 
+            URI_VOLUNTARIOS -> TabelaVoluntarios(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+            URI_VOLUNTARIO_ESPECIFICO -> TabelaVoluntarios(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
             else -> null
         }
     }
@@ -185,6 +202,8 @@ class ContentProviderInstituicoes : ContentProvider() {
             URI_INSTITUICAO_ESPECIFICO -> "$UNICO_ITEM/$INSTITUICOES"
             URI_TAREFAS -> "$MULTIPLOS_ITEMS/$TAREFAS"
             URI_TAREFA_ESPECIFICA -> "$UNICO_ITEM/$TAREFAS"
+            URI_VOLUNTARIOS-> "$MULTIPLOS_ITEMS/$VOLUNTARIOS"
+            URI_VOLUNTARIO_ESPECIFICO -> "$UNICO_ITEM/$VOLUNTARIOS"
             else -> null
         }
     }
@@ -207,6 +226,7 @@ class ContentProviderInstituicoes : ContentProvider() {
         val id = when (getUriMatcher().match(uri)) {
             URI_INSTITUICOES -> TabelaInstituicoes(bd).insert(values!!)
             URI_TAREFAS -> TabelaTarefas(bd).insert(values!!)
+            URI_VOLUNTARIOS -> TabelaVoluntarios(bd).insert(values!!)
             else -> -1L
         }
 
@@ -252,6 +272,11 @@ class ContentProviderInstituicoes : ContentProvider() {
                 arrayOf(uri.lastPathSegment!!)
             )
 
+            URI_VOLUNTARIO_ESPECIFICO -> TabelaVoluntarios(bd).delete(
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
             else -> 0
         }
     }
@@ -292,6 +317,12 @@ class ContentProviderInstituicoes : ContentProvider() {
                 arrayOf(uri.lastPathSegment!!)
             )
 
+            URI_VOLUNTARIO_ESPECIFICO -> TabelaVoluntarios(bd).update(
+                values!!,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!)
+            )
+
             else -> 0
         }
     }
@@ -301,11 +332,14 @@ class ContentProviderInstituicoes : ContentProvider() {
 
         private const val INSTITUICOES = "instituicoes"
         private const val TAREFAS = "tarefas"
+        private const val VOLUNTARIOS = "voluntarios"
 
         private const val URI_INSTITUICOES = 100
         private const val URI_INSTITUICAO_ESPECIFICO = 101
         private const val URI_TAREFAS = 200
         private const val URI_TAREFA_ESPECIFICA = 201
+        private const val URI_VOLUNTARIOS = 300
+        private const val URI_VOLUNTARIO_ESPECIFICO = 301
 
         private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
@@ -313,6 +347,7 @@ class ContentProviderInstituicoes : ContentProvider() {
         private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
         public val ENDERECO_INSTITUICOES = Uri.withAppendedPath(ENDERECO_BASE, INSTITUICOES)
         public val ENDERECO_TAREFAS = Uri.withAppendedPath(ENDERECO_BASE, TAREFAS)
+        public val ENDERECO_VOLUNTARIOS = Uri.withAppendedPath(ENDERECO_BASE, VOLUNTARIOS)
 
         private fun getUriMatcher() : UriMatcher {
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
@@ -321,6 +356,8 @@ class ContentProviderInstituicoes : ContentProvider() {
             uriMatcher.addURI(AUTHORITY, "$INSTITUICOES/#", URI_INSTITUICAO_ESPECIFICO)
             uriMatcher.addURI(AUTHORITY, TAREFAS, URI_TAREFAS)
             uriMatcher.addURI(AUTHORITY, "$TAREFAS/#", URI_TAREFA_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, VOLUNTARIOS, URI_VOLUNTARIOS)
+            uriMatcher.addURI(AUTHORITY, "$VOLUNTARIOS/#", URI_VOLUNTARIO_ESPECIFICO)
 
             return uriMatcher
         }
