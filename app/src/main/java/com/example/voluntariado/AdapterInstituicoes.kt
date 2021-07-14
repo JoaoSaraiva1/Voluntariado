@@ -51,7 +51,7 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
             DadosApp.insituicaoSelecionada = instituicao
-            DadosApp.activity.atualizaMenuListaLivros(true)
+            DadosApp.activity.atualizaMenuListaInstituicoes(true)
         }
 
         private fun desSeleciona() {
