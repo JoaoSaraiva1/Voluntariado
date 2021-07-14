@@ -46,6 +46,10 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }
 
+    fun navegaNovoInstituicao() {
+        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

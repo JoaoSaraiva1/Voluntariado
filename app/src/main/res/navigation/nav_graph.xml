@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/Lista_Instituicoes_Fragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/Lista_Instituicoes_Fragment"
         android:name="com.example.voluntariado.Lista_Institucoes_Fragment"
         android:label="Instituições"
         tools:layout="@layout/fragment_lista__institucoes">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment"
+            app:destination="@id/Novo_Instituicao_Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/Novo_Instituicao_Fragment"
         android:name="com.example.voluntariado.NovoInstituicaoFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_novo_instituicao">
-
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_Novo_Instituicao_Fragment_to_Lista_Instituicoes_Fragment"
+            app:destination="@id/Lista_Instituicoes_Fragment" />
     </fragment>
 </navigation>
