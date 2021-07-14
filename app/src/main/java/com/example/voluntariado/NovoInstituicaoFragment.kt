@@ -3,6 +3,7 @@ package com.example.voluntariado
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
@@ -39,5 +40,23 @@ class NovoInstituicaoFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun navegaListaInstituicoes() {
+        // todo: navegar para a lista de livros
+    }
+
+    fun guardar() {
+        // todo: guardar livro
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_guardar_novo_instituicao -> guardar()
+            R.id.action_cancelar_novo_instituicao -> navegaListaInstituicoes()
+            else -> return false
+        }
+
+        return true
     }
 }
