@@ -48,7 +48,13 @@ package com.example.voluntariado
             // as you specify a parent activity in AndroidManifest.xml.
             return when (item.itemId) {
                 R.id.action_settings -> true
-                else -> super.onOptionsItemSelected(item)
+                else -> {
+                    if (DadosApp.listaInstitucoesFragment.processaOpcaoMenu(item)) {
+                        return true
+                    } else {
+                        return super.onOptionsItemSelected(item)
+                    }
+                }
             }
         }
 

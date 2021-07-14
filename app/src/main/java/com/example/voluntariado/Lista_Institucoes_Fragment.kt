@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -28,6 +29,7 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.listaInstitucoesFragment = this
 
         _binding = FragmentListaInstitucoesBinding.inflate(inflater, container, false)
         return binding.root
@@ -48,6 +50,24 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
 
     fun navegaNovoInstituicao() {
         findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment)
+    }
+    fun navegaAlterarInstituicao() {
+        //todo: navegar para o fragmento da edição de uma instituicao
+    }
+
+    fun navegaEliminarInstituicao() {
+        //todo: navegar para o fragmento para confirmar eliminação de uma instituicao
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_instituicao -> navegaNovoInstituicao()
+            R.id.action_alterar_instituicao -> navegaAlterarInstituicao()
+            R.id.action_eliminar_instituicao -> navegaEliminarInstituicao()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onDestroyView() {
