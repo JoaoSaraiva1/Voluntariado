@@ -16,6 +16,7 @@ package com.example.voluntariado
 
         private lateinit var appBarConfiguration: AppBarConfiguration
         private lateinit var binding: ActivityMainBinding
+        private lateinit var menu: Menu
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -29,11 +30,15 @@ package com.example.voluntariado
             appBarConfiguration = AppBarConfiguration(navController.graph)
             setupActionBarWithNavController(navController, appBarConfiguration)
 
+            DadosApp.activity = this
         }
 
         override fun onCreateOptionsMenu(menu: Menu): Boolean {
             // Inflate the menu; this adds items to the action bar if it is present.
             menuInflater.inflate(R.menu.menu_instituicao, menu)
+            this.menu = menu
+            atualizaMenuListaInstituicoes(false)
+
             return true
         }
 
@@ -51,5 +56,10 @@ package com.example.voluntariado
             val navController = findNavController(R.id.nav_host_fragment_content_main)
             return navController.navigateUp(appBarConfiguration)
                     || super.onSupportNavigateUp()
+        }
+
+        fun atualizaMenuListaInstituicoes(mostraBotoesAlterarEliminar : Boolean) {
+            menu.findItem(R.id.action_alterar_instituicao).setVisible(mostraBotoesAlterarEliminar)
+            menu.findItem(R.id.action_eliminar_instituicao).setVisible(mostraBotoesAlterarEliminar)
         }
     }
