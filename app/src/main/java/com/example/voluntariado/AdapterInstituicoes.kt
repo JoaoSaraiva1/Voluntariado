@@ -14,17 +14,45 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
             notifyDataSetChanged()
         }
 
-    class ViewHolderInstituicoes(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderInstituicoes(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private val textViewNomeInstituicao = itemView.findViewById<TextView>(R.id.textViewNomeInstituicao)
         private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewMorada)
         private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
         private val textViewTarefas = itemView.findViewById<TextView>(R.id.textViewNomeTarefa)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun atualizaInstituicoes(instituicao: Instituicao) {
             textViewNomeInstituicao.text = instituicao.nome
             textViewMorada.text = instituicao.morada
             textViewTelefone.text = instituicao.telefone.toString()
             textViewTarefas.text = instituicao.idTarefa.toString()
+        }
+
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param v The view that was clicked.
+         */
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            selecionado = this
+            itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona() {
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var selecionado : ViewHolderInstituicoes? = null
         }
     }
 
