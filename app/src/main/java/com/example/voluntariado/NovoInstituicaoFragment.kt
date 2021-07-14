@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.SimpleCursorAdapter
 import android.widget.Spinner
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -161,7 +162,14 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun atualizaSpinnerTarefas(data: Cursor?) {
-
+        spinner_tarefas.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaTarefas.CAMPO_NOME),
+            intArrayOf(android.R.id.text1),
+            0
+        )
     }
 
     companion object {
