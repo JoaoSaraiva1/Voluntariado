@@ -20,16 +20,22 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
         private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
         private val textViewTarefas = itemView.findViewById<TextView>(R.id.textViewNomeTarefa)
 
+        private lateinit var instituicao: Instituicao
+
         init {
             itemView.setOnClickListener(this)
         }
 
+
         fun atualizaInstituicoes(instituicao: Instituicao) {
+            this.instituicao = instituicao
+
             textViewNomeInstituicao.text = instituicao.nome
             textViewMorada.text = instituicao.morada
             textViewTelefone.text = instituicao.telefone.toString()
             textViewTarefas.text = instituicao.idTarefa.toString()
         }
+
 
         /**
          * Called when a view has been clicked.
@@ -44,6 +50,7 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.insituicaoSelecionada = instituicao
         }
 
         private fun desSeleciona() {
@@ -54,6 +61,8 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
         companion object {
             var selecionado : ViewHolderInstituicoes? = null
         }
+
+
     }
 
     /**
