@@ -177,7 +177,7 @@ class TestesBaseDados {
         tarefa.id = insereTarefa(tabelaTarefas, tarefa)
 
         val tabelaInstituicoes = TabelaInstituicoes(db)
-        val instituicao = Instituicao(nome = "Cruz Vermelha", telefone = 298765431, morada = "Av. Dr. Afonso Costa ", idTarefa = tarefa.id)
+        val instituicao = Instituicao(nome = "Cruz Vermelha", telefone = 298765431, morada = "Av. Dr. Afonso Costa ", idTarefa = tarefa.id, nomeTarefas = tarefa.nome)
         instituicao.id = insereInstituicao(tabelaInstituicoes, instituicao)
 
         assertEquals(instituicao, getInstituicaoBaseDados(tabelaInstituicoes, instituicao.id))
@@ -195,17 +195,18 @@ class TestesBaseDados {
         tarefaVacinar.id = insereTarefa(tabelaTarefas, tarefaVacinar)
 
         val tarefaHorarios = Tarefa(nome = "Criacao de horarios de vacinacao", estado = "realizada")
-        tarefaHorarios.id = insereTarefa(tabelaTarefas, tarefaVacinar)
+        tarefaHorarios.id = insereTarefa(tabelaTarefas, tarefaHorarios)
 
         val tabelaInstituicoes = TabelaInstituicoes(db)
 
-        val instituicao = Instituicao(nome = "?", telefone = 0, morada = "", idTarefa = tarefaVacinar.id)
+        val instituicao = Instituicao(nome = "?", telefone = 0, morada = "", idTarefa = tarefaVacinar.id, nomeTarefas = tarefaHorarios.nome)
         instituicao.id = insereInstituicao(tabelaInstituicoes, instituicao)
 
         instituicao.nome = "ADIC"
         instituicao.telefone = 230978465
         instituicao.morada = "Rua direita"
         instituicao.idTarefa = tarefaVacinar.id
+        instituicao.nomeTarefas = tarefaHorarios.nome
 
         val registosAlterados = tabelaInstituicoes.update(
             instituicao.toContentValues(),
@@ -229,7 +230,7 @@ class TestesBaseDados {
         tarefa.id = insereTarefa(tabelaTarefas, tarefa)
 
         val tabelaInstituicao = TabelaInstituicoes(db)
-        val instituicao = Instituicao(nome = "?", telefone = 0, morada ="?", idTarefa = tarefa.id)
+        val instituicao = Instituicao(nome = "?", telefone = 0, morada ="?", idTarefa = tarefa.id, nomeTarefas = tarefa.nome)
         instituicao.id = insereInstituicao(tabelaInstituicao, instituicao)
 
         val registosEliminados = tabelaInstituicao.delete(
@@ -247,11 +248,11 @@ class TestesBaseDados {
         val db = getBdVoluntariadoOpenHelper().writableDatabase
 
         val tabelaTarefas = TabelaTarefas(db)
-        val tarefa = Tarefa(nome = "Culinária", estado = "")
+        val tarefa = Tarefa(nome = "Vacinar", estado = "")
         tarefa.id = insereTarefa(tabelaTarefas, tarefa)
 
         val tabelaInstituicoes = TabelaInstituicoes(db)
-        val instituicao = Instituicao(nome = "IVL", telefone = 987654321,morada= "Rua esquerda", idTarefa = tarefa.id)
+        val instituicao = Instituicao(nome = "IVL", telefone = 987654321,morada= "Rua esquerda", idTarefa = tarefa.id, nomeTarefas = tarefa.nome)
         instituicao.id = insereInstituicao(tabelaInstituicoes, instituicao)
 
         assertEquals(instituicao, getInstituicaoBaseDados(tabelaInstituicoes, instituicao.id))

@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import kotlin.collections.ArrayList
 
-data class Instituicao(var id: Long = -1, var nome: String, var telefone: Long = 0, var morada: String, var idTarefa: Long, var nomeTarefas: String?) {
+data class Instituicao(var id: Long = -1, var nome: String, var telefone: Long = 0, var morada: String, var idTarefa: Long, var nomeTarefas: String? = null) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaInstituicoes.CAMPO_NOME, nome)
