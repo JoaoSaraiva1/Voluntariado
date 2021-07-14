@@ -2,7 +2,6 @@ package com.example.voluntariado
 
 
     import android.os.Bundle
-    import com.google.android.material.snackbar.Snackbar
     import androidx.appcompat.app.AppCompatActivity
     import androidx.navigation.findNavController
     import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +16,12 @@ package com.example.voluntariado
         private lateinit var appBarConfiguration: AppBarConfiguration
         private lateinit var binding: ActivityMainBinding
         private lateinit var menu: Menu
+
+        var menuAtual = R.menu.menu_lista_instituicoes
+            set(value) {
+                field = value
+                invalidateOptionsMenu()
+            }
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -35,9 +40,12 @@ package com.example.voluntariado
 
         override fun onCreateOptionsMenu(menu: Menu): Boolean {
             // Inflate the menu; this adds items to the action bar if it is present.
-            menuInflater.inflate(R.menu.menu_instituicao, menu)
+            menuInflater.inflate(menuAtual, menu)
             this.menu = menu
-            atualizaMenuListaInstituicoes(false)
+
+            if (menuAtual == R.menu.menu_lista_instituicoes) {
+                atualizaMenuListaInstituicoes(false)
+            }
 
             return true
         }
@@ -49,7 +57,7 @@ package com.example.voluntariado
             return when (item.itemId) {
                 R.id.action_settings -> true
                 else -> {
-                    if (DadosApp.listaInstitucoesFragment.processaOpcaoMenu(item)) {
+                    if (DadosApp.listaInstitucoesFragment!!.processaOpcaoMenu(item)) {
                         return true
                     } else {
                         return super.onOptionsItemSelected(item)

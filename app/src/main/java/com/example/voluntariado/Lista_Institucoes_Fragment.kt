@@ -30,6 +30,7 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
         savedInstanceState: Bundle?
     ): View? {
         DadosApp.listaInstitucoesFragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_instituicoes
 
         _binding = FragmentListaInstitucoesBinding.inflate(inflater, container, false)
         return binding.root
