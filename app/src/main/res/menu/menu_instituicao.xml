@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.voluntariado.MainActivity">
     <item
+        android:id="@+id/action_novo_instituicao"
         android:icon="@drawable/ic_baseline_add"
         android:title="novo_instituicao"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_alterar_instituicao"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="alterar_instituicao"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_eliminar_instituicao"
         android:icon="@android:drawable/ic_menu_delete"
         android:title="eliminar_instituicao"
         app:showAsAction="always" />
