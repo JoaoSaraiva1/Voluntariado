@@ -15,4 +15,6 @@
     <string name="morada">Morada:</string>
     <string name="telefone">Telefone</string>
     <string name="tarefas">Tarefas</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
