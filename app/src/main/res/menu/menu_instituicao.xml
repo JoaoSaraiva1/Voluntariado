@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.voluntariado.MainActivity">
+    <item
+        android:icon="@drawable/ic_baseline_add"
+        android:title="novo_instituicao"
+        app:showAsAction="always" />
+    <item
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="alterar_instituicao"
+        app:showAsAction="always" />
+    <item
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="eliminar_instituicao"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>
