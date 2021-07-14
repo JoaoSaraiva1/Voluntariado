@@ -43,7 +43,7 @@ class NovoInstituicaoFragment : Fragment() {
     }
 
     fun navegaListaInstituicoes() {
-        // todo: navegar para a lista de livros
+        findNavController().navigate(R.id.action_Novo_Instituicao_Fragment_to_Lista_Instituicoes_Fragment)
     }
 
     fun guardar() {
