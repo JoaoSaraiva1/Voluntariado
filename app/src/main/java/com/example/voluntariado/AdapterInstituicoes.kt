@@ -18,13 +18,13 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
         private val textViewNomeInstituicao = itemView.findViewById<TextView>(R.id.textViewNomeInstituicao)
         private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewMorada)
         private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
-       // private val textViewTarefas = itemView.findViewById<TextView>(R.id.textViewNomeTarefa)
+        private val textViewTarefas = itemView.findViewById<TextView>(R.id.textViewNomeTarefa)
 
         fun atualizaInstituicoes(instituicao: Instituicao) {
             textViewNomeInstituicao.text = instituicao.nome
             textViewMorada.text = instituicao.morada
             textViewTelefone.text = instituicao.telefone.toString()
-          //  textViewTarefas.text = instituicao.idTarefa.toString()
+            textViewTarefas.text = instituicao.idTarefa.toString()
         }
     }
 
