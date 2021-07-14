@@ -18,4 +18,8 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="versao">Instituicoes v. 1.0</string>
+    <string name="preencha_nome">Preencha o nome da instituição</string>
+    <string name="preencha_telefone">Preencha o telefone</string>
+    <string name="erro_inserir_livro">Erro ao inserir instituicao</string>
+    <string name="preencha_morada">Erro ao preencher a morada</string>
 </resources>

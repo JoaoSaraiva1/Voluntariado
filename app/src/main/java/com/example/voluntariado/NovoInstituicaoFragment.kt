@@ -15,6 +15,7 @@ import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.voluntariado.databinding.FragmentNovoInstituicaoBinding
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -67,7 +68,43 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     fun guardar() {
-        // todo: guardar livro
+        val nome_instituicao = id_nome_instituicao.text.toString()
+        if (nome_instituicao.isEmpty()) {
+            id_nome_instituicao.setError(getString(R.string.preencha_nome))
+            return
+        }
+
+        val telefone = id_telefone.text.toString()
+        if (telefone.isEmpty()) {
+            id_telefone.setError(getString(R.string.preencha_telefone))
+            return
+        }
+
+        val morada = id_morada.text.toString()
+        if (morada.isEmpty()) {
+            id_morada.setError(getString(R.string.preencha_morada))
+            return
+        }
+
+        val idTarefas = spinner_tarefas.selectedItemId
+
+        val instituicoes = Instituicao(nome = nome_instituicao, telefone = telefone, morada = morada, idTarefa = idTarefas)
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
+            instituicoes.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                id_nome_instituicao,
+                getString(R.string.erro_inserir_livro),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        navegaListaInstituicoes()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
