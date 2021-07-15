@@ -77,12 +77,14 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         val telefone = id_telefone.text.toString()
         if (telefone.isEmpty()) {
             id_telefone.setError(getString(R.string.preencha_telefone))
+            id_telefone.requestFocus()
             return
         }
 
         val morada = id_morada.text.toString()
         if (morada.isEmpty()) {
             id_morada.setError(getString(R.string.preencha_morada))
+            id_morada.requestFocus()
             return
         }
 
