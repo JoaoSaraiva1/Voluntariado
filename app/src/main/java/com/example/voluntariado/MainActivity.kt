@@ -62,12 +62,9 @@ package com.example.voluntariado
                 }
 
                 else -> when (menuAtual) {
-                    R.menu.menu_lista_instituicoes -> DadosApp.listaInstitucoesFragment!!.processaOpcaoMenu(
-                        item
-                    )
-                    R.menu.menu_nova_instituicao -> DadosApp.novoInstituicaoFragment!!.processaOpcaoMenu(
-                        item
-                    )
+                    R.menu.menu_lista_instituicoes -> (DadosApp.fragment as Lista_Institucoes_Fragment).processaOpcaoMenu(item)
+                    R.menu.menu_nova_instituicao -> (DadosApp.fragment as NovoInstituicaoFragment).processaOpcaoMenu(item)
+                    R.menu.menu_edita_instituicao -> (DadosApp.fragment as EditaInstituicaoFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }

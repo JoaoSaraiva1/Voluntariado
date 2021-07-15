@@ -37,7 +37,7 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        DadosApp.novoInstituicaoFragment = this
+        DadosApp.fragment = this
         (activity as MainActivity).menuAtual = R.menu.menu_nova_instituicao
 
         _binding = FragmentNovoInstituicaoBinding.inflate(inflater, container, false)

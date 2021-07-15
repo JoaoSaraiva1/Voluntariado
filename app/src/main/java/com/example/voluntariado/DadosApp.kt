@@ -1,10 +1,11 @@
 package com.example.voluntariado
 
+import androidx.fragment.app.Fragment
+
 class DadosApp {
     companion object {
         lateinit var activity: MainActivity
-        lateinit var listaInstitucoesFragment: Lista_Institucoes_Fragment
-        var novoInstituicaoFragment: NovoInstituicaoFragment? = null
+        lateinit var fragment: Fragment
 
         var insituicaoSelecionada : Instituicao? = null
     }
