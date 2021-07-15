@@ -53,7 +53,7 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
         findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment)
     }
     fun navegaAlterarInstituicao() {
-        //todo: navegar para o fragmento da edição de uma instituicao
+        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Edita_Instituicao_Fragment)
     }
 
     fun navegaEliminarInstituicao() {
