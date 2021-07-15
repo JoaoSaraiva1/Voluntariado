@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import kotlin.collections.ArrayList
 
-data class Instituicao(var id: Long = -1, var nome: String, var telefone: Long = 0, var morada: String, var idTarefa: Long){//, var nomeTarefas: String? = null) {
+data class Instituicao(var id: Long = -1, var nome: String, var telefone: String, var morada: String, var idTarefa: Long, var nomeTarefas: String? = null) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaInstituicoes.CAMPO_NOME, nome)
@@ -22,16 +22,16 @@ data class Instituicao(var id: Long = -1, var nome: String, var telefone: Long =
             val volTelefone = cursor.getColumnIndex(TabelaInstituicoes.CAMPO_TELEFONE)
             val volMorada = cursor.getColumnIndex(TabelaInstituicoes.CAMPO_MORADA)
             val volIdTarefa= cursor.getColumnIndex(TabelaInstituicoes.CAMPO_ID_TAREFAS)
-            //val colNomeTarefas = cursor.getColumnIndex(TabelaInstituicoes.CAMPO_EXTERNO_NOME_TAREFA)
+            val colNomeTarefas = cursor.getColumnIndex(TabelaInstituicoes.CAMPO_EXTERNO_NOME_TAREFA)
 
             val id = cursor.getLong(volId)
             val nome = cursor.getString(volNome)
-            val telefone = cursor.getLong(volTelefone)
+            val telefone = cursor.getString(volTelefone)
             val morada = cursor.getString(volMorada)
             val idTarefa = cursor.getLong(volIdTarefa)
-            //val nomeTarefas = if (colNomeTarefas != -1) cursor.getString(colNomeTarefas) else null
+            val nomeTarefas = if (colNomeTarefas != -1) cursor.getString(colNomeTarefas) else null
 
-            return Instituicao(id, nome, telefone, morada , idTarefa)//, nomeTarefas)
+            return Instituicao(id, nome, telefone, morada , idTarefa, nomeTarefas)
         }
     }
 }

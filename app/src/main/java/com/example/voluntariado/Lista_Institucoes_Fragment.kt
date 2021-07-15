@@ -82,7 +82,7 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
             ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
             TabelaInstituicoes.TODAS_COLUNAS,
             null, null,
-            TabelaInstituicoes.CAMPO_NOME
+            TabelaInstituicoes.NOME_TABELA+ "." + TabelaInstituicoes.CAMPO_NOME
         )
     }
 

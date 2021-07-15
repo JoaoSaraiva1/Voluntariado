@@ -26,7 +26,6 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
             itemView.setOnClickListener(this)
         }
 
-
         fun atualizaInstituicoes(instituicao: Instituicao) {
             this.instituicao = instituicao
 
@@ -35,7 +34,6 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
             textViewTelefone.text = instituicao.telefone.toString()
             textViewTarefas.text = instituicao.idTarefa.toString()
         }
-
 
         /**
          * Called when a view has been clicked.
@@ -62,8 +60,6 @@ class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerV
         companion object {
             var selecionado : ViewHolderInstituicoes? = null
         }
-
-
     }
 
     /**

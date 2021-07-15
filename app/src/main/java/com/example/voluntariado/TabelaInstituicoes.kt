@@ -34,7 +34,7 @@ class TabelaInstituicoes(db: SQLiteDatabase) {
         orderBy: String?
     ): Cursor? {
 
-        /*
+
         val ultimaColuna = columns.size - 1
 
         var posColNomeTarefa = -1 // -1 indica que a coluna não foi pedida
@@ -47,11 +47,11 @@ class TabelaInstituicoes(db: SQLiteDatabase) {
 
         if (posColNomeTarefa == -1) {
 
-         */
+
             return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
         }
 
-        /*
+
         var colunas = ""
         for (i in 0..ultimaColuna) {
             if (i > 0) colunas += ","
@@ -79,7 +79,7 @@ class TabelaInstituicoes(db: SQLiteDatabase) {
         return db.rawQuery(sql, selectionArgs)
     }
 
-         */
+
 
     companion object {
 
@@ -88,9 +88,9 @@ class TabelaInstituicoes(db: SQLiteDatabase) {
         const val CAMPO_TELEFONE = "telefone"
         const val CAMPO_MORADA = "morada"
         const val CAMPO_ID_TAREFAS = "id_tarefas"
-        //const val CAMPO_EXTERNO_NOME_TAREFA = "nome_tarefa"
+        const val CAMPO_EXTERNO_NOME_TAREFA = "nome_tarefa"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME,CAMPO_TELEFONE,CAMPO_MORADA,CAMPO_ID_TAREFAS) //, CAMPO_EXTERNO_NOME_TAREFA)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME,CAMPO_TELEFONE,CAMPO_MORADA,CAMPO_ID_TAREFAS, CAMPO_EXTERNO_NOME_TAREFA)
     }
 }
 
