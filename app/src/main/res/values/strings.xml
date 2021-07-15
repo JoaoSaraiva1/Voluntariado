@@ -26,4 +26,6 @@
     <string name="nova_instituicao_fragment_label">Novo Instituicao</string>
     <string name="erro_alterar_instituicao">Erro ao alterar instituição</string>
     <string name="instituicao_guardada_sucesso">Instituição guardada com sucesso</string>
+    <string name="erro_eliminar_instituicao">Erro ao eliminar instituição</string>
+    <string name="instituicao_eliminado_sucesso">Instituição eliminada com sucesso</string>
 </resources>
