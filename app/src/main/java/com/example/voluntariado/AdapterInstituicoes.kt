@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterInstituicoes(val fragment: Lista_Institucoes_Fragment)  : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicoes>() {
+class AdapterInstituicoes(val fragment: ListaInstitucoesFragment)  : RecyclerView.Adapter<AdapterInstituicoes.ViewHolderInstituicoes>() {
     public var cursor: Cursor? = null
         get() = field
         set(value) {

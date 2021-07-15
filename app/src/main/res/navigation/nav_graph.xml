@@ -7,12 +7,18 @@
 
     <fragment
         android:id="@+id/Lista_Instituicoes_Fragment"
-        android:name="com.example.voluntariado.Lista_Institucoes_Fragment"
+        android:name="com.example.voluntariado.ListaInstitucoesFragment"
         android:label="Instituições"
         tools:layout="@layout/fragment_lista__institucoes">
         <action
             android:id="@+id/action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment"
             app:destination="@id/Novo_Instituicao_Fragment" />
+        <action
+            android:id="@+id/action_listaLivrosFragment_to_editaLivroFragment"
+            app:destination="@id/editaInstituicaoFragment" />
+        <action
+            android:id="@+id/action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment"
+            app:destination="@id/eliminaInstituicaoFragment" />
     </fragment>
     <fragment
         android:id="@+id/Novo_Instituicao_Fragment"
@@ -30,6 +36,15 @@
         tools:layout="@layout/fragment_edita_instituicao">
         <action
             android:id="@+id/action_Lista_Instituicoes_Fragment_to_Edita_Instituicao_Fragment"
+            app:destination="@id/Lista_Instituicoes_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaInstituicaoFragment"
+        android:name="com.example.voluntariado.EliminaInstituicaoFragment"
+        android:label="@string/elimina_instituicao_fragment_label"
+        tools:layout="@layout/fragment_elimina_instituicao" >
+        <action
+            android:id="@+id/action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment"
             app:destination="@id/Lista_Instituicoes_Fragment" />
     </fragment>
 </navigation>

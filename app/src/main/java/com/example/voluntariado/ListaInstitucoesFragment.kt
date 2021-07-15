@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.voluntariado.databinding.FragmentListaInstitucoesBinding
 
 
-class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class ListaInstitucoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaInstitucoesBinding? = null
     private var adapterInstituicoes : AdapterInstituicoes? = null
@@ -57,7 +57,7 @@ class Lista_Institucoes_Fragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
     }
 
     fun navegaEliminarInstituicao() {
-        //todo: navegar para o fragmento para confirmar eliminação de uma instituicao
+        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

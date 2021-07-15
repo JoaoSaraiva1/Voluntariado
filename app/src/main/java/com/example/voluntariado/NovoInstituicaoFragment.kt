@@ -101,7 +101,7 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         if (uri == null) {
             Snackbar.make(
                 id_nome_instituicao,
-                getString(R.string.erro_inserir_livro),
+                getString(R.string.erro_inserir_instituicao),
                 Snackbar.LENGTH_LONG
             ).show()
             return
