@@ -9,11 +9,10 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nome_institui_o">Nome Instituição:</string>
+    <string name="novo_instituicao">Nova instituição</string>
+    <string name="alterar_instituicao">Alterar instituição</string>
+    <string name="eliminar_instituicao">Eliminar instituição</string>
+    <string name="nome_instituicao">Nome Instituição:</string>
     <string name="morada">Morada:</string>
     <string name="telefone">Telefone</string>
     <string name="tarefas">Tarefas</string>
@@ -22,8 +21,8 @@
     <string name="versao">Instituicoes v. 1.0</string>
     <string name="preencha_nome">Preencha o nome da instituição</string>
     <string name="preencha_telefone">Preencha o telefone</string>
+    <string name="preencha_morada">Preencha a morada</string>
     <string name="erro_inserir_instituicao">Erro ao inserir instituicao</string>
-    <string name="preencha_morada">Erro ao preencher a morada</string>
     <string name="nova_instituicao_fragment_label">Novo Instituicao</string>
     <string name="erro_alterar_instituicao">Erro ao alterar instituição</string>
     <string name="instituicao_guardada_sucesso">Instituição guardada com sucesso</string>

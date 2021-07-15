@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_marginTop="40dp"
-        android:text="@string/nome_institui_o"
+        android:text="@string/nome_instituicao"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

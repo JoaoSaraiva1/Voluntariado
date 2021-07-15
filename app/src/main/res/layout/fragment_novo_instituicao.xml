@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="@string/nome_institui_o" />
+            android:hint="@string/nome_instituicao" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
