@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.SimpleCursorAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -106,8 +107,14 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             return
         }
 
+        Toast.makeText(
+            requireContext(),
+            R.string.instituicao_guardada_sucesso,
+            Toast.LENGTH_LONG
+        ).show()
         navegaListaInstituicoes()
     }
+
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {

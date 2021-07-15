@@ -24,4 +24,6 @@
     <string name="preencha_morada">Erro ao preencher a morada</string>
     <string name="nova_instituicao_fragment_label">Novo Livro</string>
     <string name="edita_instituicao_fragment_label">Editar instituicao</string>
+    <string name="erro_alterar_instituicao">Erro ao alterar instituição</string>
+    <string name="instituicao_guardada_sucesso">Instituição guardada com sucesso</string>
 </resources>
