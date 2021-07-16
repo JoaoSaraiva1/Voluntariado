@@ -7,21 +7,21 @@
     tools:context=".MenuInicial">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonInstituicoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:drawableTop="@drawable/house"
         android:text="@string/instituicoes"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSair"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonVoluntarios"
         app:layout_constraintVertical_bias="0.64" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonVoluntarios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.535" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonTarefas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -44,12 +44,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/buttonVoluntarios"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.535" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonSair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
