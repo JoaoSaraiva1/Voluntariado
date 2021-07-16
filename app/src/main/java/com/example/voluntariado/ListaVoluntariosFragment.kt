@@ -43,7 +43,7 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         super.onViewCreated(view, savedInstanceState)
 
         val RecyclerViewVoluntarios = view.findViewById<RecyclerView>(R.id.RecyclerViewVoluntarios)
-        adapterVoluntarios = AdapterVoluntarios()
+        adapterVoluntarios = AdapterVoluntarios(this)
         RecyclerViewVoluntarios.adapter = adapterVoluntarios
         RecyclerViewVoluntarios.layoutManager = LinearLayoutManager(requireContext())
 

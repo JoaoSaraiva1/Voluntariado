@@ -31,7 +31,7 @@ class AdapterInstituicoes(val fragment: ListaInstitucoesFragment)  : RecyclerVie
 
             textViewNomeInstituicao.text = instituicao.nome
             textViewMorada.text = instituicao.morada
-            textViewTelefone.text = instituicao.telefone.toString()
+            textViewTelefone.text = instituicao.telefone
             textViewTarefas.text = instituicao.idTarefa.toString()
         }
 

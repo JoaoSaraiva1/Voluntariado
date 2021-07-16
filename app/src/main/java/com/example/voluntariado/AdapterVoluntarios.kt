@@ -3,11 +3,30 @@ package com.example.voluntariado
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.voluntariado.DadosApp.Companion.fragment
 
-class AdapterVoluntarios(var cursor: Cursor? = null)  : RecyclerView.Adapter<AdapterVoluntarios.ViewHolderVoluntarios>() {
+class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView.Adapter<AdapterVoluntarios.ViewHolderVoluntarios>() {
+    public var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     class ViewHolderVoluntarios(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val textViewNomeVoluntario = itemView.findViewById<TextView>(R.id.textViewNomeVoluntario)
+        private val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
+        private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
+        private val textViewGenero = itemView.findViewById<TextView>(R.id.textViewGenero)
 
+        fun atualizaVoluntarios(voluntario: Voluntario) {
+            textViewNomeVoluntario.text = voluntario.nome
+            textViewDataNascimento.text = voluntario.data_nascimento.toString()
+            textViewTelefone.text = voluntario.telefone
+            textViewGenero.text = voluntario.genero
+        }
     }
 
     /**
@@ -34,7 +53,9 @@ class AdapterVoluntarios(var cursor: Cursor? = null)  : RecyclerView.Adapter<Ada
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVoluntarios {
-        TODO("Not yet implemented")
+        val itemVoluntarios = fragment.layoutInflater.inflate(R.layout.item_voluntarios, parent, false)
+
+        return AdapterVoluntarios.ViewHolderVoluntarios(itemVoluntarios)
     }
 
     /**
@@ -59,7 +80,8 @@ class AdapterVoluntarios(var cursor: Cursor? = null)  : RecyclerView.Adapter<Ada
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderVoluntarios, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.atualizaVoluntarios(Voluntario.fromCursor(cursor!!))
     }
 
     /**
@@ -68,6 +90,6 @@ class AdapterVoluntarios(var cursor: Cursor? = null)  : RecyclerView.Adapter<Ada
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }
