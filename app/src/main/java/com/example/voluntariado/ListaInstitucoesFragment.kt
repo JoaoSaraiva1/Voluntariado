@@ -46,7 +46,6 @@ class ListaInstitucoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_INSTITUICOES, null, this)
 
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }
 
     fun navegaNovoInstituicao() {

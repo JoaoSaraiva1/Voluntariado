@@ -4,11 +4,13 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.voluntariado.databinding.FragmentListaInstitucoesBinding
@@ -23,18 +25,14 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_voluntarios
+
         _binding = FragmentListaVoluntariosBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,9 +49,31 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
             .initLoader(ID_LOADER_MANAGER_VOLUNTARIOS, null, this)
 
     }
+
+    fun navegaNovoInstituicao() {
+        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment)
+    }
+    fun navegaAlterarInstituicao() {
+        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Edita_Instituicao_Fragment)
+    }
+
+    fun navegaEliminarInstituicao() {
+        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_instituicao -> navegaNovoInstituicao()
+            R.id.action_alterar_instituicao -> navegaAlterarInstituicao()
+            R.id.action_eliminar_instituicao -> navegaEliminarInstituicao()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {

@@ -55,10 +55,26 @@
         <action
             android:id="@+id/action_menuInicial_to_Lista_Instituicoes_Fragment"
             app:destination="@id/Lista_Instituicoes_Fragment" />
+        <action
+            android:id="@+id/action_menuInicial_to_listaVoluntariosFragment"
+            app:destination="@id/listaVoluntariosFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaVoluntariosFragment"
         android:name="com.example.voluntariado.ListaVoluntariosFragment"
         android:label="fragment_lista_voluntarios"
-        tools:layout="@layout/fragment_lista_voluntarios2" />
+        tools:layout="@layout/fragment_lista_voluntarios" >
+        <action
+            android:id="@+id/action_listaVoluntariosFragment_to_novoVoluntarioFragment"
+            app:destination="@id/novoVoluntarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novoVoluntarioFragment"
+        android:name="com.example.voluntariado.NovoVoluntarioFragment"
+        android:label="fragment_novo_voluntario"
+        tools:layout="@layout/fragment_novo_voluntario" >
+        <action
+            android:id="@+id/action_novoVoluntarioFragment_to_listaVoluntariosFragment"
+            app:destination="@id/listaVoluntariosFragment" />
+    </fragment>
 </navigation>
