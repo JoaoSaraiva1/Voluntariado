@@ -15,17 +15,44 @@ class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView
             notifyDataSetChanged()
         }
 
-    class ViewHolderVoluntarios(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderVoluntarios(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private val textViewNomeVoluntario = itemView.findViewById<TextView>(R.id.textViewNomeVoluntario)
         private val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
         private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
         private val textViewGenero = itemView.findViewById<TextView>(R.id.textViewGenero)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun atualizaVoluntarios(voluntario: Voluntario) {
             textViewNomeVoluntario.text = voluntario.nome
             textViewDataNascimento.text = voluntario.data_nascimento.toString()
             textViewTelefone.text = voluntario.telefone
             textViewGenero.text = voluntario.genero
+        }
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param v The view that was clicked.
+         */
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            selecionado = this
+            itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona() {
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var selecionado : AdapterVoluntarios.ViewHolderVoluntarios? = null
         }
     }
 
