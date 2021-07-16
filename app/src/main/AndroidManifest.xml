@@ -22,7 +22,7 @@
 
         <provider
             android:authorities="com.example.voluntariado"
-            android:name=".ContentProviderInstituicoes"
+            android:name=".ContentProviderVoluntariado"
             android:exported="false" />
 
     </application>

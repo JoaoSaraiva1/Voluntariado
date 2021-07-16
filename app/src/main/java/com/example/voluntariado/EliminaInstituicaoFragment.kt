@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.loader.app.LoaderManager
 import androidx.navigation.fragment.findNavController
 
 class EliminaInstituicaoFragment : Fragment() {
@@ -50,7 +49,7 @@ class EliminaInstituicaoFragment : Fragment() {
     }
     fun elimina() {
         val uriInstituicao = Uri.withAppendedPath(
-            ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
+            ContentProviderVoluntariado.ENDERECO_INSTITUICOES,
             DadosApp.insituicaoSelecionada!!.id.toString()
         )
 

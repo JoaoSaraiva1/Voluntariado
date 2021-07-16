@@ -16,7 +16,6 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 
 class EditaInstituicaoFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
@@ -87,7 +86,7 @@ class EditaInstituicaoFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor
         instituicoes.idTarefa = idTarefas
 
         val uriInstituicao = Uri.withAppendedPath(
-            ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
+            ContentProviderVoluntariado.ENDERECO_INSTITUICOES,
             instituicoes.id.toString()
         )
 
@@ -139,7 +138,7 @@ class EditaInstituicaoFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderInstituicoes.ENDERECO_TAREFAS,
+            ContentProviderVoluntariado.ENDERECO_TAREFAS,
             TabelaTarefas.TODAS_COLUNAS,
             null, null,
             TabelaTarefas.CAMPO_NOME

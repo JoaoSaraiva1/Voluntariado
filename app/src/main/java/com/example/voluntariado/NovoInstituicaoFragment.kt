@@ -94,7 +94,7 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         val instituicoes = Instituicao(nome = nome_instituicao, telefone = telefone, morada = morada, idTarefa = idTarefas)
 
         val uri = activity?.contentResolver?.insert(
-            ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
+            ContentProviderVoluntariado.ENDERECO_INSTITUICOES,
             instituicoes.toContentValues()
         )
 
@@ -139,7 +139,7 @@ class NovoInstituicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderInstituicoes.ENDERECO_TAREFAS,
+            ContentProviderVoluntariado.ENDERECO_TAREFAS,
             TabelaTarefas.TODAS_COLUNAS,
             null, null,
             TabelaTarefas.CAMPO_NOME

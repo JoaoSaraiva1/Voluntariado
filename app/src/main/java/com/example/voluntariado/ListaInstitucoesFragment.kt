@@ -79,7 +79,7 @@ class ListaInstitucoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
+            ContentProviderVoluntariado.ENDERECO_INSTITUICOES,
             TabelaInstituicoes.TODAS_COLUNAS,
             null, null,
             TabelaInstituicoes.NOME_TABELA+ "." + TabelaInstituicoes.CAMPO_NOME

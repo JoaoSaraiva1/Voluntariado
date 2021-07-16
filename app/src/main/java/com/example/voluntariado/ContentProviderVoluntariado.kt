@@ -8,7 +8,7 @@ import android.net.Uri
 import android.provider.BaseColumns
 
 
-class ContentProviderInstituicoes : ContentProvider() {
+class ContentProviderVoluntariado : ContentProvider() {
     private var bdVoluntariadoOpenHelper : BdVoluntariadoOpenHelper? = null
     /**
      * Implement this to initialize your content provider on startup.
