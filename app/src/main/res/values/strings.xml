@@ -34,4 +34,7 @@
     <string name="instituicoes">Instituições</string>
     <string name="voluntarios">Voluntarios</string>
     <string name="sair">Sair</string>
+    <string name="nome_voluntario">Nome Voluntario</string>
+    <string name="data_nascimento">Data nascimento</string>
+    <string name="genero">Genero</string>
 </resources>
