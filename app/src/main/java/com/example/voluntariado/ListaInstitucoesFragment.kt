@@ -35,6 +35,7 @@ class ListaInstitucoesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         _binding = FragmentListaInstitucoesBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

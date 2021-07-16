@@ -69,7 +69,7 @@ package com.example.voluntariado
                     R.menu.menu_nova_instituicao -> (DadosApp.fragment as NovoInstituicaoFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_instituicao -> (DadosApp.fragment as EditaInstituicaoFragment).processaOpcaoMenu(item)
                     R.menu.menu_elimina_instituicao -> (DadosApp.fragment as EliminaInstituicaoFragment).processaOpcaoMenu(item)
-                    //R.menu.menu_lista_voluntarios -> (DadosApp.fragment as ListaVoluntariosFragment).processaOpcaoMenu(item)
+                    R.menu.menu_lista_voluntarios -> (DadosApp.fragment as ListaVoluntariosFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
