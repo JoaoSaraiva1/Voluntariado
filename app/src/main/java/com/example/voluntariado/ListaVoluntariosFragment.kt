@@ -1,17 +1,24 @@
 package com.example.voluntariado
 
+import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.voluntariado.databinding.FragmentListaInstitucoesBinding
+import com.example.voluntariado.databinding.FragmentListaVoluntariosBinding
 
 
-class ListaVoluntariosFragment : Fragment() {
+class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  {
 
-    private var _binding: FragmentListaInstitucoesBinding? = null
-    private var adapterInstituicoes : AdapterInstituicoes? = null
+    private var _binding: FragmentListaVoluntariosBinding? = null
+    private var adapterVoluntarios : AdapterVoluntarios? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -28,25 +35,46 @@ class ListaVoluntariosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista_voluntarios, container, false)
+        _binding = FragmentListaVoluntariosBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val RecyclerViewVoluntarios = view.findViewById<RecyclerView>(R.id.RecyclerViewVoluntarios)
+        adapterVoluntarios = AdapterVoluntarios()
+        RecyclerViewVoluntarios.adapter = adapterVoluntarios
+        RecyclerViewVoluntarios.layoutManager = LinearLayoutManager(requireContext())
+
+        LoaderManager.getInstance(this)
+            .initLoader(ID_LOADER_MANAGER_VOLUNTARIOS, null, this)
+
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+        return CursorLoader(
+            requireContext(),
+            ContentProviderVoluntariado.ENDERECO_VOLUNTARIOS,
+            TabelaVoluntarios.TODAS_COLUNAS,
+            null, null,
+            TabelaVoluntarios.CAMPO_NOME
+        )
+    }
+
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLoaderReset(loader: Loader<Cursor>) {
+        TODO("Not yet implemented")
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ListaVoluntariosFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ListaVoluntariosFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
+        const val ID_LOADER_MANAGER_VOLUNTARIOS = 0
     }
 }

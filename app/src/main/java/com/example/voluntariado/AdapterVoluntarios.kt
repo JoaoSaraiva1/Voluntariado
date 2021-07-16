@@ -1,64 +1,12 @@
 package com.example.voluntariado
 
-import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterVoluntarios(val fragment: ListaVoluntariosFragment) : RecyclerView.Adapter<AdapterVoluntarios.ViewHolderVoluntarios>() {
-    public var cursor: Cursor? = null
-        get() = field
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-    class ViewHolderVoluntarios(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        private val textViewNomeInstituicao = itemView.findViewById<TextView>(R.id.textViewNomeInstituicao)
-        private val textViewMorada = itemView.findViewById<TextView>(R.id.textViewMorada)
-        private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
-        private val textViewTarefas = itemView.findViewById<TextView>(R.id.textViewNomeTarefa)
+class AdapterVoluntarios  : RecyclerView.Adapter<AdapterVoluntarios.ViewHolderVoluntarios>() {
+    class ViewHolderVoluntarios(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private lateinit var instituicao: Instituicao
-
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        fun atualizaInstituicoes(instituicao: Instituicao) {
-            this.instituicao = instituicao
-
-            textViewNomeInstituicao.text = instituicao.nome
-            textViewMorada.text = instituicao.morada
-            textViewTelefone.text = instituicao.telefone.toString()
-            textViewTarefas.text = instituicao.idTarefa.toString()
-        }
-
-        /**
-         * Called when a view has been clicked.
-         *
-         * @param v The view that was clicked.
-         */
-        override fun onClick(v: View?) {
-            selecionado?.desSeleciona()
-            seleciona()
-        }
-
-        private fun seleciona() {
-            selecionado = this
-            itemView.setBackgroundResource(R.color.cor_selecao)
-            DadosApp.insituicaoSelecionada = instituicao
-            DadosApp.activity.atualizaMenuListaInstituicoes(true)
-        }
-
-        private fun desSeleciona() {
-            selecionado = null
-            itemView.setBackgroundResource(android.R.color.white)
-        }
-
-        companion object {
-            var selecionado : ViewHolderVoluntarios? = null
-        }
     }
 
     /**
@@ -85,9 +33,7 @@ class AdapterVoluntarios(val fragment: ListaVoluntariosFragment) : RecyclerView.
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVoluntarios {
-        val itemVoluntarios = fragment.layoutInflater.inflate(R.layout.item_voluntarios, parent, false)
-
-        return ViewHolderVoluntarios(itemVoluntarios)
+        TODO("Not yet implemented")
     }
 
     /**
@@ -111,9 +57,8 @@ class AdapterVoluntarios(val fragment: ListaVoluntariosFragment) : RecyclerView.
      * item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-    override fun onBindViewHolder(holder: ViewHolderInstituicoes, position: Int) {
-        cursor!!.moveToPosition(position)
-        holder.atualizaInstituicoes(Instituicao.fromCursor(cursor!!))
+    override fun onBindViewHolder(holder: ViewHolderVoluntarios, position: Int) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -122,6 +67,6 @@ class AdapterVoluntarios(val fragment: ListaVoluntariosFragment) : RecyclerView.
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        return cursor?.count ?: 0
+        TODO("Not yet implemented")
     }
 }
