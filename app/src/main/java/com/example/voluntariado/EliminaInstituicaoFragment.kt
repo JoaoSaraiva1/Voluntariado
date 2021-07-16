@@ -13,16 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.navigation.fragment.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [EliminaLivroFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class EliminaInstituicaoFragment : Fragment() {
 
     private lateinit var id_nome_instituicao: EditText
@@ -55,7 +45,7 @@ class EliminaInstituicaoFragment : Fragment() {
     }
 
     fun navegaListaInstituicoes() {
-        findNavController().navigate(R.id.action_Novo_Instituicao_Fragment_to_Lista_Instituicoes_Fragment)
+        findNavController().navigate(R.id.action_Elimina_Instituicoes_Fragment_to_Lista_Instituicao_Fragment)
     }
     fun elimina() {
         val uriInstituicao = Uri.withAppendedPath(

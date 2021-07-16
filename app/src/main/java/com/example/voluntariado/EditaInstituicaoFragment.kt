@@ -54,7 +54,7 @@ class EditaInstituicaoFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     fun navegaListaInstituicoes() {
-        findNavController().navigate(R.id.action_Novo_Instituicao_Fragment_to_Lista_Instituicoes_Fragment)
+        findNavController().navigate(R.id.action_Edita_Instituicao_Fragment_to_Lista_Instituicoes_Fragment)
     }
 
     fun guardar() {
@@ -80,7 +80,11 @@ class EditaInstituicaoFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
         val idTarefas = spinner_tarefas.selectedItemId
 
-        val instituicoes = Instituicao(nome = nome_instituicao, telefone = telefone, morada = morada, idTarefa = idTarefas)
+        val instituicoes = DadosApp.insituicaoSelecionada!!
+        instituicoes.nome = nome_instituicao
+        instituicoes.telefone = telefone
+        instituicoes.morada = morada
+        instituicoes.idTarefa = idTarefas
 
         val uriInstituicao = Uri.withAppendedPath(
             ContentProviderInstituicoes.ENDERECO_INSTITUICOES,
@@ -114,8 +118,8 @@ class EditaInstituicaoFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_guardar_novo_instituicao -> guardar()
-            R.id.action_cancelar_novo_instituicao -> navegaListaInstituicoes()
+            R.id.action_guardar_edita_instituicao -> guardar()
+            R.id.action_cancelar_edita_instituicao -> navegaListaInstituicoes()
             else -> return false
         }
 
