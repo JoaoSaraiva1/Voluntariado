@@ -56,4 +56,9 @@
             android:id="@+id/action_menuInicial_to_Lista_Instituicoes_Fragment"
             app:destination="@id/Lista_Instituicoes_Fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listaVoluntariosFragment"
+        android:name="com.example.voluntariado.ListaVoluntariosFragment"
+        android:label="fragment_lista_voluntarios"
+        tools:layout="@layout/fragment_lista_voluntarios2" />
 </navigation>
