@@ -1,6 +1,5 @@
 package com.example.voluntariado
 
-import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,29 +7,24 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Spinner
 import android.widget.Toast
-import androidx.loader.app.LoaderManager
-import androidx.loader.content.CursorLoader
-import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.example.voluntariado.databinding.FragmentNovoInstituicaoBinding
 import com.example.voluntariado.databinding.FragmentNovoVoluntarioBinding
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
-import com.example.voluntariado.R.string.erro_inserir_instituicao as erro_inserir_instituicao
+import java.util.*
 
 
 class NovoVoluntarioFragment : Fragment() {
 
     private var _binding: FragmentNovoVoluntarioBinding? = null
 
-    private val binding get() = _binding!!
-
     private lateinit var id_nome_voluntario: EditText
     private lateinit var id_data_nascimento: EditText
     private lateinit var id_telefone: EditText
     private lateinit var id_genero: EditText
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +33,9 @@ class NovoVoluntarioFragment : Fragment() {
         DadosApp.fragment = this
         (activity as MainActivity).menuAtual = R.menu.menu_novo_voluntario
 
-        return inflater.inflate(R.layout.fragment_novo_voluntario, container, false)
+        _binding = FragmentNovoVoluntarioBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,14 +64,15 @@ class NovoVoluntarioFragment : Fragment() {
             return
         }
 
-        val data_nascimento = id_data_nascimento.text.toString()
-        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val data_nascimento  =  id_data_nascimento.text.toString()
+        val simpleDateFormat  = SimpleDateFormat("dd/MM/yyyy")
         val date = simpleDateFormat.parse(data_nascimento)
         if (data_nascimento.isEmpty()) {
             id_data_nascimento.setError(getString(R.string.preencha_data_nascimento))
             id_data_nascimento.requestFocus()
             return
         }
+
 
         val telefone = id_telefone.text.toString()
         if (telefone.isEmpty()) {

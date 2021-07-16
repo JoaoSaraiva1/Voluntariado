@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import java.util.*
 
-data class Voluntario(var id: Long = -1, var nome: String, var dataNascimento: Date , var telefone: String , var genero: String) {
+data class Voluntario(var id: Long = -1, var nome: String, var dataNascimento: Date, var telefone: String, var genero: String) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaVoluntarios.CAMPO_NOME, nome)
