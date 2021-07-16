@@ -2,10 +2,11 @@
     <string name="app_name">Voluntariado</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="lista_instituicoes_fragment_label">Livros</string>
-    <string name="novo_instituicao_fragment_label">Novo livro</string>
-    <string name="edita_instituicao_fragment_label">Editar livro</string>
-    <string name="elimina_instituicao_fragment_label">Eliminar livro?</string>
+    <string name="menu_inicial_fragment_label">Voluntariado</string>
+    <string name="lista_instituicoes_fragment_label">Lista Instituições</string>
+    <string name="novo_instituicao_fragment_label">Nova Instituição</string>
+    <string name="edita_instituicao_fragment_label">Editar Instituição</string>
+    <string name="elimina_instituicao_fragment_label">Eliminar Instituição?</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -23,7 +24,6 @@
     <string name="preencha_telefone">Preencha o telefone</string>
     <string name="preencha_morada">Preencha a morada</string>
     <string name="erro_inserir_instituicao">Erro ao inserir instituicao</string>
-    <string name="nova_instituicao_fragment_label">Novo Instituicao</string>
     <string name="erro_alterar_instituicao">Erro ao alterar instituição</string>
     <string name="instituicao_guardada_sucesso">Instituição guardada com sucesso</string>
     <string name="erro_eliminar_instituicao">Erro ao eliminar instituição</string>

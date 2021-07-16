@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/Novo_Instituicao_Fragment"
         android:name="com.example.voluntariado.NovoInstituicaoFragment"
-        android:label="@string/nova_instituicao_fragment_label"
+        android:label="@string/menu_inicial_fragment_label"
         tools:layout="@layout/fragment_novo_instituicao">
         <action
             android:id="@+id/action_Novo_Instituicao_Fragment_to_Lista_Instituicoes_Fragment"
@@ -50,8 +50,8 @@
     <fragment
         android:id="@+id/menuInicial"
         android:name="com.example.voluntariado.MenuInicial"
-        android:label="fragment_menu_inicial"
-        tools:layout="@layout/fragment_menu_inicial" >
+        android:label="@string/menu_inicial_fragment_label"
+        tools:layout="@layout/fragment_menu_inicial">
         <action
             android:id="@+id/action_menuInicial_to_Lista_Instituicoes_Fragment"
             app:destination="@id/Lista_Instituicoes_Fragment" />
