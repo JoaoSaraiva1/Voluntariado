@@ -1,10 +1,11 @@
 package com.example.voluntariado
 
+import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterVoluntarios  : RecyclerView.Adapter<AdapterVoluntarios.ViewHolderVoluntarios>() {
+class AdapterVoluntarios(var cursor: Cursor? = null)  : RecyclerView.Adapter<AdapterVoluntarios.ViewHolderVoluntarios>() {
     class ViewHolderVoluntarios(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
