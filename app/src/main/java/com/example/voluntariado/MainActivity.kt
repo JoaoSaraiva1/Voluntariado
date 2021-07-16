@@ -18,7 +18,7 @@ package com.example.voluntariado
         private lateinit var binding: ActivityMainBinding
         private lateinit var menu: Menu
 
-        var menuAtual = R.menu.menu_lista_instituicoes
+        var menuAtual = R.menu.menu_inicial
             set(value) {
                 field = value
                 invalidateOptionsMenu()
@@ -70,6 +70,7 @@ package com.example.voluntariado
                     R.menu.menu_edita_instituicao -> (DadosApp.fragment as EditaInstituicaoFragment).processaOpcaoMenu(item)
                     R.menu.menu_elimina_instituicao -> (DadosApp.fragment as EliminaInstituicaoFragment).processaOpcaoMenu(item)
                     R.menu.menu_lista_voluntarios -> (DadosApp.fragment as ListaVoluntariosFragment).processaOpcaoMenu(item)
+                    R.menu.menu_novo_voluntario -> (DadosApp.fragment as NovoVoluntarioFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }

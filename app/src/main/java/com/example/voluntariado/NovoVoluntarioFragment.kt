@@ -1,59 +1,133 @@
 package com.example.voluntariado
 
+import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
+import com.example.voluntariado.databinding.FragmentNovoInstituicaoBinding
+import com.example.voluntariado.databinding.FragmentNovoVoluntarioBinding
+import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import com.example.voluntariado.R.string.erro_inserir_instituicao as erro_inserir_instituicao
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [NovoVoluntarioFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NovoVoluntarioFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentNovoVoluntarioBinding? = null
+
+    private val binding get() = _binding!!
+
+    private lateinit var id_nome_voluntario: EditText
+    private lateinit var id_data_nascimento: EditText
+    private lateinit var id_telefone: EditText
+    private lateinit var id_genero: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_novo_voluntario
+
         return inflater.inflate(R.layout.fragment_novo_voluntario, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NovoVoluntarioFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NovoVoluntarioFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        id_nome_voluntario = view.findViewById(R.id.id_nome_voluntario)
+        id_telefone = view.findViewById(R.id.id_telefone)
+        id_data_nascimento = view.findViewById(R.id.id_data_nascimento)
+        id_genero = view.findViewById(R.id.id_genero)
+
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun navegaListaVoluntarios() {
+        findNavController().navigate(R.id.action_novoVoluntarioFragment_to_listaVoluntariosFragment)
+    }
+
+    fun guardar() {
+        val nome_voluntario = id_nome_voluntario.text.toString()
+        if (nome_voluntario.isEmpty()) {
+            id_nome_voluntario.setError(getString(R.string.preencha_nome_voluntario))
+            return
+        }
+
+        val data_nascimento = id_data_nascimento.text.toString()
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val date = simpleDateFormat.parse(data_nascimento)
+        if (data_nascimento.isEmpty()) {
+            id_data_nascimento.setError(getString(R.string.preencha_data_nascimento))
+            id_data_nascimento.requestFocus()
+            return
+        }
+
+        val telefone = id_telefone.text.toString()
+        if (telefone.isEmpty()) {
+            id_telefone.setError(getString(R.string.preencha_telefone))
+            id_telefone.requestFocus()
+            return
+        }
+
+        val genero = id_genero.text.toString()
+        if (genero.isEmpty()) {
+            id_genero.setError(getString(R.string.preencha_genero))
+            id_genero.requestFocus()
+            return
+        }
+
+        val voluntario = Voluntario(
+            nome = nome_voluntario,
+            telefone = telefone,
+            dataNascimento = date,
+            genero = genero
+        )
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderVoluntariado.ENDERECO_VOLUNTARIOS,
+            voluntario.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                id_nome_voluntario,
+                getString(R.string.erro_inserir_voluntario),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        Toast.makeText(
+            requireContext(),
+            R.string.voluntario_guardado_sucesso,
+            Toast.LENGTH_LONG
+        ).show()
+        navegaListaVoluntarios()
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_guardar_novo_voluntario -> guardar()
+            R.id.action_cancelar_novo_voluntario -> navegaListaVoluntarios()
+            else -> return false
+        }
+
+        return true
+    }
+
 }

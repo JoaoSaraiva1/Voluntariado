@@ -5,11 +5,11 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import java.util.*
 
-data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: Date , var telefone: String , var genero: String) {
+data class Voluntario(var id: Long = -1, var nome: String, var dataNascimento: Date , var telefone: String , var genero: String) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues()
         valores.put(TabelaVoluntarios.CAMPO_NOME, nome)
-        valores.put(TabelaVoluntarios.CAMPO_DATA_NASCIMENTO, data_nascimento.time)
+        valores.put(TabelaVoluntarios.CAMPO_DATA_NASCIMENTO, dataNascimento.time)
         valores.put(TabelaVoluntarios.CAMPO_TELEFONE, telefone)
         valores.put(TabelaVoluntarios.CAMPO_GENERO, genero)
         return valores
@@ -25,11 +25,11 @@ data class Voluntario(var id: Long = -1, var nome: String, var data_nascimento: 
 
             val id = cursor.getLong(volId)
             val nome = cursor.getString(volNome)
-            val data_nascimento = Date(cursor.getLong(volDataNascimento))
+            val dataNascimento = Date(cursor.getLong(volDataNascimento))
             val telefone = cursor.getString(volTelefone)
             val genero = cursor.getString(volGenero)
 
-            return Voluntario(id, nome, data_nascimento, telefone, genero)
+            return Voluntario(id, nome, dataNascimento, telefone, genero)
         }
     }
 }

@@ -31,7 +31,7 @@ class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView
             this.voluntario = voluntario
 
             textViewNomeVoluntario.text = voluntario.nome
-            textViewDataNascimento.text = voluntario.data_nascimento.toString()
+            textViewDataNascimento.text = voluntario.dataNascimento.toString()
             textViewTelefone.text = voluntario.telefone
             textViewGenero.text = voluntario.genero
         }
@@ -88,7 +88,7 @@ class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVoluntarios {
         val itemVoluntarios = fragment.layoutInflater.inflate(R.layout.item_voluntarios, parent, false)
 
-        return AdapterVoluntarios.ViewHolderVoluntarios(itemVoluntarios)
+        return ViewHolderVoluntarios(itemVoluntarios)
     }
 
     /**

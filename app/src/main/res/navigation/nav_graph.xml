@@ -71,8 +71,8 @@
     <fragment
         android:id="@+id/novoVoluntarioFragment"
         android:name="com.example.voluntariado.NovoVoluntarioFragment"
-        android:label="fragment_novo_voluntario"
-        tools:layout="@layout/fragment_novo_voluntario" >
+        android:label="Novo voluntario"
+        tools:layout="@layout/fragment_novo_voluntario">
         <action
             android:id="@+id/action_novoVoluntarioFragment_to_listaVoluntariosFragment"
             app:destination="@id/listaVoluntariosFragment" />

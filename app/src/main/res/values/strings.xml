@@ -39,4 +39,9 @@
     <string name="genero">Genero</string>
     <string name="alterar_voluntario">Alterar voluntario</string>
     <string name="eliminar_voluntario">Eliminar voluntario</string>
+    <string name="preencha_nome_voluntario">Preencha o nome do voluntario</string>
+    <string name="preencha_data_nascimento">Preencha a data de nascimento</string>
+    <string name="preencha_genero">Preencha o genero</string>
+    <string name="erro_inserir_voluntario">Erro ao inserir voluntario</string>
+    <string name="voluntario_guardado_sucesso">Voluntario guardado com sucesso</string>
 </resources>

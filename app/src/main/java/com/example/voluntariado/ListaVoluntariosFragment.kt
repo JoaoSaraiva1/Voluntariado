@@ -50,15 +50,15 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
 
     }
 
-    fun navegaNovoInstituicao() {
-        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Novo_Instituicao_Fragment)
+    fun navegaNovoVoluntario() {
+        findNavController().navigate(R.id.action_listaVoluntariosFragment_to_novoVoluntarioFragment)
     }
-    fun navegaAlterarInstituicao() {
-        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Edita_Instituicao_Fragment)
+    fun navegaAlterarVoluntario() {
+        //findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Edita_Instituicao_Fragment)
     }
 
-    fun navegaEliminarInstituicao() {
-        findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment)
+    fun navegaEliminarVoluntario() {
+        //findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment)
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -67,9 +67,9 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_novo_instituicao -> navegaNovoInstituicao()
-            R.id.action_alterar_instituicao -> navegaAlterarInstituicao()
-            R.id.action_eliminar_instituicao -> navegaEliminarInstituicao()
+            R.id.action_novo_voluntario -> navegaNovoVoluntario()
+            R.id.action_alterar_instituicao -> navegaAlterarVoluntario()
+            R.id.action_eliminar_instituicao -> navegaEliminarVoluntario()
             else -> return false
         }
 
