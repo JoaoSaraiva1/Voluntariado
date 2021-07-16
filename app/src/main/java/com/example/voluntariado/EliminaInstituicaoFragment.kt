@@ -25,7 +25,7 @@ class EliminaInstituicaoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         DadosApp.fragment = this
-        (activity as MainActivity).menuAtual = R.menu.menu_edita_instituicao
+        (activity as MainActivity).menuAtual = R.menu.menu_elimina_instituicao
 
         return inflater.inflate(R.layout.fragment_elimina_instituicao, container, false)
     }
@@ -38,6 +38,7 @@ class EliminaInstituicaoFragment : Fragment() {
         id_morada = view.findViewById(R.id.id_morada)
         spinner_tarefas = view.findViewById(R.id.spinner_tarefas)
 
+        val instituicao = DadosApp.insituicaoSelecionada!!
         id_nome_instituicao.setText(DadosApp.insituicaoSelecionada!!.nome)
         id_telefone.setText(DadosApp.insituicaoSelecionada!!.telefone)
         id_morada.setText(DadosApp.insituicaoSelecionada!!.morada)

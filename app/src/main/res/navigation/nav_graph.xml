@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/Lista_Instituicoes_Fragment">
+    app:startDestination="@id/menuInicial">
 
     <fragment
         android:id="@+id/Lista_Instituicoes_Fragment"
@@ -45,6 +45,15 @@
         tools:layout="@layout/fragment_elimina_instituicao" >
         <action
             android:id="@+id/action_Elimina_Instituicoes_Fragment_to_Lista_Instituicao_Fragment"
+            app:destination="@id/Lista_Instituicoes_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuInicial"
+        android:name="com.example.voluntariado.MenuInicial"
+        android:label="fragment_menu_inicial"
+        tools:layout="@layout/fragment_menu_inicial" >
+        <action
+            android:id="@+id/action_menuInicial_to_Lista_Instituicoes_Fragment"
             app:destination="@id/Lista_Instituicoes_Fragment" />
     </fragment>
 </navigation>
