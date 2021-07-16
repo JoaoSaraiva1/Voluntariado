@@ -31,4 +31,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="BotaoInstituicoes">Button</string>
+    <string name="instituicoes">Instituições</string>
+    <string name="voluntarios">Voluntarios</string>
+    <string name="sair">Sair</string>
 </resources>
