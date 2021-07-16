@@ -49,6 +49,7 @@ class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
             DadosApp.voluntarioSelecionado = voluntario
+            DadosApp.activity.atualizaMenuListaVoluntarios(true)
         }
 
         private fun desSeleciona() {

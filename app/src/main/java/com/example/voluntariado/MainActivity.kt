@@ -48,6 +48,8 @@ package com.example.voluntariado
                 atualizaMenuListaInstituicoes(false)
             }
 
+            atualizaMenuListaVoluntarios(false)
+
             return true
         }
 
@@ -82,5 +84,9 @@ package com.example.voluntariado
         fun atualizaMenuListaInstituicoes(mostraBotoesAlterarEliminar : Boolean) {
             menu.findItem(R.id.action_alterar_instituicao).setVisible(mostraBotoesAlterarEliminar)
             menu.findItem(R.id.action_eliminar_instituicao).setVisible(mostraBotoesAlterarEliminar)
+        }
+        fun atualizaMenuListaVoluntarios(mostraBotoesAlterarEliminar : Boolean) {
+            menu.findItem(R.id.action_alterar_voluntario).setVisible(mostraBotoesAlterarEliminar)
+            menu.findItem(R.id.action_eliminar_voluntario).setVisible(mostraBotoesAlterarEliminar)
         }
     }

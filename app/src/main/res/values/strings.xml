@@ -37,4 +37,6 @@
     <string name="nome_voluntario">Nome Voluntario</string>
     <string name="data_nascimento">Data nascimento</string>
     <string name="genero">Genero</string>
+    <string name="alterar_voluntario">Alterar voluntario</string>
+    <string name="eliminar_voluntario">Eliminar voluntario</string>
 </resources>
