@@ -21,11 +21,15 @@ class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView
         private val textViewTelefone = itemView.findViewById<TextView>(R.id.textViewTelefone)
         private val textViewGenero = itemView.findViewById<TextView>(R.id.textViewGenero)
 
+        private lateinit var voluntario: Voluntario
+
         init {
             itemView.setOnClickListener(this)
         }
 
         fun atualizaVoluntarios(voluntario: Voluntario) {
+            this.voluntario = voluntario
+
             textViewNomeVoluntario.text = voluntario.nome
             textViewDataNascimento.text = voluntario.data_nascimento.toString()
             textViewTelefone.text = voluntario.telefone
@@ -44,6 +48,7 @@ class AdapterVoluntarios(var fragment: ListaVoluntariosFragment)  : RecyclerView
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.voluntarioSelecionado = voluntario
         }
 
         private fun desSeleciona() {
