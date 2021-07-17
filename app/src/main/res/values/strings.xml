@@ -48,4 +48,5 @@
     <string name="erro_eliminar">Erro ao eliminar registo</string>
     <string name="eliminado_sucesso">Registo eliminado com sucesso</string>
     <string name="estado">Estado da tarefa</string>
+    <string name="nome_tarefa">Nome tarefa</string>
 </resources>
