@@ -70,9 +70,14 @@ class EditaVoluntarioFragment : Fragment() {
             return
         }
 
-        val data = id_data_nascimento .text.toString()
+        val data_nascimento  =  id_data_nascimento.text.toString()
         val simpleDateFormat  = SimpleDateFormat("dd/MM/yyyy")
-        val date = simpleDateFormat.parse(data)
+        val date = simpleDateFormat.parse(data_nascimento)
+        if (data_nascimento.isEmpty()) {
+            id_data_nascimento.setError(getString(R.string.preencha_data_nascimento))
+            id_data_nascimento.requestFocus()
+            return
+        }
 
         val genero = id_genero.text.toString()
         if (genero.isEmpty()) {
