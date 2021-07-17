@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_listaVoluntariosFragment_to_editaVoluntarioFragment"
             app:destination="@id/editaVoluntarioFragment" />
+        <action
+            android:id="@+id/action_listaVoluntariosFragment_to_eliminaVoluntarioFragment"
+            app:destination="@id/eliminaVoluntarioFragment" />
     </fragment>
     <fragment
         android:id="@+id/novoVoluntarioFragment"
@@ -87,6 +90,15 @@
         tools:layout="@layout/fragment_edita_voluntario">
         <action
             android:id="@+id/action_editaVoluntarioFragment_to_listaVoluntariosFragment"
+            app:destination="@id/listaVoluntariosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaVoluntarioFragment"
+        android:name="com.example.voluntariado.EliminaVoluntarioFragment"
+        android:label="Elimina voluntario"
+        tools:layout="@layout/fragment_elimina_voluntario">
+        <action
+            android:id="@+id/action_eliminaVoluntarioFragment_to_listaVoluntariosFragment"
             app:destination="@id/listaVoluntariosFragment" />
     </fragment>
 </navigation>

@@ -57,7 +57,7 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     }
 
     fun navegaEliminarVoluntario() {
-        //findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Elimina_Instituicao_Fragment)
+        findNavController().navigate(R.id.action_listaVoluntariosFragment_to_eliminaVoluntarioFragment)
     }
     override fun onDestroyView() {
         super.onDestroyView()

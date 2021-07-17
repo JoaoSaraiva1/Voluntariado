@@ -45,4 +45,6 @@
     <string name="erro_inserir_voluntario">Erro ao inserir voluntario</string>
     <string name="voluntario_guardado_sucesso">Voluntario guardado com sucesso</string>
     <string name="erro_alterar_registo">Erro ao alterar registo</string>
+    <string name="erro_eliminar">Erro ao eliminar registo</string>
+    <string name="eliminado_sucesso">Registo eliminado com sucesso</string>
 </resources>
