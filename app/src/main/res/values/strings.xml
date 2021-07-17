@@ -20,7 +20,7 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="versao">Instituicoes v. 1.0</string>
-    <string name="preencha_nome">Preencha o nome da instituição</string>
+    <string name="preencha_nome">Preencha o nome </string>
     <string name="preencha_telefone">Preencha o telefone</string>
     <string name="preencha_morada">Preencha a morada</string>
     <string name="erro_inserir_instituicao">Erro ao inserir instituicao</string>
@@ -44,4 +44,5 @@
     <string name="preencha_genero">Preencha o genero</string>
     <string name="erro_inserir_voluntario">Erro ao inserir voluntario</string>
     <string name="voluntario_guardado_sucesso">Voluntario guardado com sucesso</string>
+    <string name="erro_alterar_registo">Erro ao alterar registo</string>
 </resources>
