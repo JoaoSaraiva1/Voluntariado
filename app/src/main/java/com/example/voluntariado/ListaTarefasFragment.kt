@@ -58,7 +58,7 @@ class ListaTarefasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  
     }
 
     fun navegaEliminarTarefa() {
-        //findNavController().navigate(R.id.action_listaVoluntariosFragment_to_eliminaVoluntarioFragment)
+        findNavController().navigate(R.id.action_listaTarefasFragment_to_eliminaTarefaFragment)
     }
     override fun onDestroyView() {
         super.onDestroyView()

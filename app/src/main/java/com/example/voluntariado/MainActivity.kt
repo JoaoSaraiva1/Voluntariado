@@ -79,7 +79,7 @@ package com.example.voluntariado
                     R.menu.menu_lista_tarefas -> (DadosApp.fragment as ListaTarefasFragment).processaOpcaoMenu(item)
                     R.menu.menu_novo_tarefa -> (DadosApp.fragment as NovoTarefaFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_tarefa -> (DadosApp.fragment as EditaTarefaFragment).processaOpcaoMenu(item)
-                    //R.menu.menu_elimina_tarefa -> (DadosApp.fragment as EliminaVoluntarioFragment).processaOpcaoMenu(item)
+                    R.menu.menu_elimina_tarefa -> (DadosApp.fragment as EliminaTarefaFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
