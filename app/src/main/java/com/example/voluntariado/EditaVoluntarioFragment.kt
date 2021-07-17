@@ -127,7 +127,4 @@ class EditaVoluntarioFragment : Fragment() {
         return true
     }
 
-    companion object {
-
-    }
 }

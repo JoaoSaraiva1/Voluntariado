@@ -54,7 +54,7 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         findNavController().navigate(R.id.action_listaVoluntariosFragment_to_novoVoluntarioFragment)
     }
     fun navegaAlterarVoluntario() {
-        //findNavController().navigate(R.id.action_Lista_Instituicoes_Fragment_to_Edita_Instituicao_Fragment)
+        findNavController().navigate(R.id.action_listaVoluntariosFragment_to_editaVoluntarioFragment)
     }
 
     fun navegaEliminarVoluntario() {
