@@ -40,7 +40,7 @@ class MenuInicial : Fragment() {
             findNavController().navigate(R.id.action_menuInicial_to_Lista_Instituicoes_Fragment)
         }
         binding.buttonSair.setOnClickListener {
-
+            System.exit(0);
         }
 
     }
