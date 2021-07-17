@@ -63,7 +63,7 @@ package com.example.voluntariado
             // as you specify a parent activity in AndroidManifest.xml.
             val opcaoProcessada = when (item.itemId) {
                 R.id.action_settings -> {
-                    Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, R.string.versao_final, Toast.LENGTH_LONG).show()
                     true
                 }
 

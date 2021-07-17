@@ -52,4 +52,5 @@
     <string name="preencha_estado">Preencha o estado</string>
     <string name="erro_inserir_tarefa">Erro a inserir tarefa</string>
     <string name="tarefa_guardada_sucesso">Tarefa guardada com sucesso</string>
+    <string name="versao_final">Versão Final</string>
 </resources>
