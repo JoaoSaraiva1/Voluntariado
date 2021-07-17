@@ -5,17 +5,17 @@
     <item
         android:id="@+id/action_novo_voluntario"
         android:icon="@drawable/ic_baseline_add"
-        android:title="novo_instituicao"
+        android:title="novo_voluntario"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_alterar_voluntario"
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="alterar_instituicao"
+        android:title="alterar_voluntario"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_eliminar_voluntario"
         android:icon="@android:drawable/ic_menu_delete"
-        android:title="eliminar_instituicao"
+        android:title="eliminar_voluntario"
         app:showAsAction="always" />
 
 </menu>

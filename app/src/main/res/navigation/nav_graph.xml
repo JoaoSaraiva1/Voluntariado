@@ -83,8 +83,8 @@
     <fragment
         android:id="@+id/editaVoluntarioFragment"
         android:name="com.example.voluntariado.EditaVoluntarioFragment"
-        android:label="fragment_edita_voluntario"
-        tools:layout="@layout/fragment_edita_voluntario" >
+        android:label="Edita voluntario"
+        tools:layout="@layout/fragment_edita_voluntario">
         <action
             android:id="@+id/action_editaVoluntarioFragment_to_listaVoluntariosFragment"
             app:destination="@id/listaVoluntariosFragment" />

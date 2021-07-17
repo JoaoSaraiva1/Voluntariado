@@ -13,7 +13,6 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.voluntariado.databinding.FragmentListaInstitucoesBinding
 import com.example.voluntariado.databinding.FragmentListaVoluntariosBinding
 
 
@@ -68,8 +67,8 @@ class ListaVoluntariosFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_novo_voluntario -> navegaNovoVoluntario()
-            R.id.action_alterar_instituicao -> navegaAlterarVoluntario()
-            R.id.action_eliminar_instituicao -> navegaEliminarVoluntario()
+            R.id.action_alterar_voluntario -> navegaAlterarVoluntario()
+            R.id.action_eliminar_voluntario -> navegaEliminarVoluntario()
             else -> return false
         }
 
