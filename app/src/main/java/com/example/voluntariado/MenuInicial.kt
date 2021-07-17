@@ -34,7 +34,7 @@ class MenuInicial : Fragment() {
             findNavController().navigate(R.id.action_menuInicial_to_listaVoluntariosFragment)
         }
         binding.buttonTarefas.setOnClickListener {
-            //findNavController().navigate(R.id.action_FragmentInicio_to_FragmentLocal)
+            findNavController().navigate(R.id.action_menuInicial_to_listaTarefasFragment)
         }
         binding.buttonInstituicoes.setOnClickListener {
             findNavController().navigate(R.id.action_menuInicial_to_Lista_Instituicoes_Fragment)

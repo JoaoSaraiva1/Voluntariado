@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.voluntariado.MainActivity">
+    <item
+        android:id="@+id/action_novo_tarefa"
+        android:icon="@drawable/ic_baseline_add"
+        android:title="novo_tarefa"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_alterar_tarefa"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="alterar_tarefa"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_eliminar_tarefa"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="eliminar_tarefa"
+        app:showAsAction="always" />
+
+</menu>

@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_menuInicial_to_listaVoluntariosFragment"
             app:destination="@id/listaVoluntariosFragment" />
+        <action
+            android:id="@+id/action_menuInicial_to_listaTarefasFragment"
+            app:destination="@id/listaTarefasFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaVoluntariosFragment"
@@ -73,6 +76,9 @@
         <action
             android:id="@+id/action_listaVoluntariosFragment_to_eliminaVoluntarioFragment"
             app:destination="@id/eliminaVoluntarioFragment" />
+        <action
+            android:id="@+id/action_listaVoluntariosFragment_to_menuInicial"
+            app:destination="@id/menuInicial" />
     </fragment>
     <fragment
         android:id="@+id/novoVoluntarioFragment"
@@ -100,5 +106,14 @@
         <action
             android:id="@+id/action_eliminaVoluntarioFragment_to_listaVoluntariosFragment"
             app:destination="@id/listaVoluntariosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaTarefasFragment"
+        android:name="com.example.voluntariado.ListaTarefasFragment"
+        android:label="Lista tarefas"
+        tools:layout="@layout/fragment_lista_tarefas">
+        <action
+            android:id="@+id/action_listaTarefasFragment_to_menuInicial"
+            app:destination="@id/menuInicial" />
     </fragment>
 </navigation>

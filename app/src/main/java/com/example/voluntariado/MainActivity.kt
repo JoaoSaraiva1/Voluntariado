@@ -51,6 +51,9 @@ package com.example.voluntariado
             if (menuAtual == R.menu.menu_lista_voluntarios) {
                 atualizaMenuListaVoluntarios(false)
             }
+            if (menuAtual == R.menu.menu_lista_tarefas) {
+                atualizaMenuListaTarefas(false)
+            }
             return true
         }
 
@@ -73,6 +76,7 @@ package com.example.voluntariado
                     R.menu.menu_novo_voluntario -> (DadosApp.fragment as NovoVoluntarioFragment).processaOpcaoMenu(item)
                     R.menu.menu_edita_voluntario -> (DadosApp.fragment as EditaVoluntarioFragment).processaOpcaoMenu(item)
                     R.menu.menu_elimina_voluntario -> (DadosApp.fragment as EliminaVoluntarioFragment).processaOpcaoMenu(item)
+                    R.menu.menu_lista_tarefas -> (DadosApp.fragment as ListaTarefasFragment).processaOpcaoMenu(item)
                     else -> false
                 }
             }
@@ -93,5 +97,9 @@ package com.example.voluntariado
         fun atualizaMenuListaVoluntarios(mostraBotoesAlterarEliminar : Boolean) {
             menu.findItem(R.id.action_alterar_voluntario).setVisible(mostraBotoesAlterarEliminar)
             menu.findItem(R.id.action_eliminar_voluntario).setVisible(mostraBotoesAlterarEliminar)
+        }
+        fun atualizaMenuListaTarefas(mostraBotoesAlterarEliminar : Boolean) {
+            menu.findItem(R.id.action_alterar_tarefa).setVisible(mostraBotoesAlterarEliminar)
+            menu.findItem(R.id.action_eliminar_tarefa).setVisible(mostraBotoesAlterarEliminar)
         }
     }

@@ -9,5 +9,7 @@ class DadosApp {
 
         var insituicaoSelecionada : Instituicao? = null
         var voluntarioSelecionado : Voluntario? = null
+        var tarefaSelecionada : Tarefa? = null
+
     }
 }
