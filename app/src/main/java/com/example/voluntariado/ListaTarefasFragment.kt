@@ -51,7 +51,7 @@ class ListaTarefasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>  
     }
 
     fun navegaNovoTarefa() {
-        //findNavController().navigate(R.id.action_listaVoluntariosFragment_to_novoVoluntarioFragment)
+        findNavController().navigate(R.id.action_listaTarefasFragment_to_novoTarefaFragment)
     }
     fun navegaAlterarTarefa() {
         //findNavController().navigate(R.id.action_listaVoluntariosFragment_to_editaVoluntarioFragment)

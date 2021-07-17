@@ -49,4 +49,7 @@
     <string name="eliminado_sucesso">Registo eliminado com sucesso</string>
     <string name="estado">Estado da tarefa</string>
     <string name="nome_tarefa">Nome tarefa</string>
+    <string name="preencha_estado">Preencha o estado</string>
+    <string name="erro_inserir_tarefa">Erro a inserir tarefa</string>
+    <string name="tarefa_guardada_sucesso">Tarefa guardada com sucesso</string>
 </resources>

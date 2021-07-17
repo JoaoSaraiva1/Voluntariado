@@ -115,5 +115,17 @@
         <action
             android:id="@+id/action_listaTarefasFragment_to_menuInicial"
             app:destination="@id/menuInicial" />
+        <action
+            android:id="@+id/action_listaTarefasFragment_to_novoTarefaFragment"
+            app:destination="@id/novoTarefaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novoTarefaFragment"
+        android:name="com.example.voluntariado.NovoTarefaFragment"
+        android:label="Nova tarefa"
+        tools:layout="@layout/fragment_novo_tarefa">
+        <action
+            android:id="@+id/action_novoTarefaFragment_to_listaTarefasFragment"
+            app:destination="@id/listaTarefasFragment" />
     </fragment>
 </navigation>
