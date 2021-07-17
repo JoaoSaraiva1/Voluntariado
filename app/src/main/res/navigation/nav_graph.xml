@@ -118,6 +118,9 @@
         <action
             android:id="@+id/action_listaTarefasFragment_to_novoTarefaFragment"
             app:destination="@id/novoTarefaFragment" />
+        <action
+            android:id="@+id/action_listaTarefasFragment_to_editaTarefaFragment"
+            app:destination="@id/editaTarefaFragment" />
     </fragment>
     <fragment
         android:id="@+id/novoTarefaFragment"
@@ -126,6 +129,15 @@
         tools:layout="@layout/fragment_novo_tarefa">
         <action
             android:id="@+id/action_novoTarefaFragment_to_listaTarefasFragment"
+            app:destination="@id/listaTarefasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaTarefaFragment"
+        android:name="com.example.voluntariado.EditaTarefaFragment"
+        android:label="Edita tarefa"
+        tools:layout="@layout/fragment_edita_tarefa">
+        <action
+            android:id="@+id/action_editaTarefaFragment_to_listaTarefasFragment"
             app:destination="@id/listaTarefasFragment" />
     </fragment>
 </navigation>
